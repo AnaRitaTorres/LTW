@@ -3,7 +3,7 @@
 <head>
 	<title>Restaurant Reviews</title>
 	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="styles/stylesheet.css">
 </head>
 <body>
   <?    
