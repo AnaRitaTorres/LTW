@@ -1,0 +1,50 @@
+CREATE TABLE users (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR NOT NULL,
+	password VARCHAR,
+	email VARCHAR NOT NULL,
+	age INTEGER,
+	address CHAR(50)
+);
+
+CREATE TABLE restaurants (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR NOT NULL,
+	description VARCHAR NOT NULL,
+	image VARCHAR,
+	price FLOAT,
+	category VARCHAR NOT NULL,
+	link VARCHAR
+);
+
+CREATE TABLE restaurant_user (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	restaurant_id INTEGER REFERENCES restaurants,
+	user_id INTEGER REFERENCES users
+);
+
+CREATE TABLE reviews (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	user_id INTEGER REFERENCES users,
+	restaurant_id INTEGER REFERENCES restaurants,
+	score INTEGER NOT NULL,
+	body VARCHAR NOT NULL,
+	date TIMESTAMP NOT NULL,
+	likes INTEGER NOT NULL,
+	dislikes INTEGER NOT NULL
+);
+
+CREATE TABLE comments (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	body VARCHAR NOT NULL,
+	likes INTEGER NOT NULL,
+	dislikes INTEGER NOT NULL
+);
+
+CREATE TABLE review_comment (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	comment_id INTEGER REFERENCES comments,
+	review_id INTEGER REFERENCES reviews,
+	user_id INTEGER REFERENCES users,
+);
+
