@@ -4,14 +4,14 @@
 </div>
 <div id="login">
     <?if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) { ?>
-        <form action="logout.php" method="post">
+        <form action="../../controllers/logout.php" method="post">
             <input type="submit" value="Log out">
         </form>
-        <form action="create_review.php" method="post">
+        <form action="../../views/restaurants/create_review.php" method="post">
             <input type="submit" value="new review">
         </form>
     <?} else {?>
-        <form action="login.php" method="post">
+        <form action="../../controllers/login.php" method="post">
             <label>Username:
                 <input type="text" name="username">
             </label>

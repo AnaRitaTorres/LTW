@@ -1,14 +1,16 @@
+DROP TABLE IF EXISTS users;
 CREATE TABLE users (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	first_name VARCHAR NOT NULL,
 	last_name VARCHAR NOT NULL,
-	password VARCHAR,
+	password VARCHAR(40) NOT NULL,
 	email VARCHAR NOT NULL,
 	age INTEGER,
 	gender VARCHAR,
 	address VARCHAR(50)
 );
 
+DROP TABLE IF EXISTS restaurants;
 CREATE TABLE restaurants (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name VARCHAR NOT NULL,
@@ -19,12 +21,14 @@ CREATE TABLE restaurants (
 	link VARCHAR
 );
 
+DROP TABLE IF EXISTS restaurant_user;
 CREATE TABLE restaurant_user (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	restaurant_id INTEGER REFERENCES restaurants,
 	user_id INTEGER REFERENCES users
 );
 
+DROP TABLE IF EXISTS reviews;
 CREATE TABLE reviews (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	user_id INTEGER REFERENCES users,
@@ -36,6 +40,7 @@ CREATE TABLE reviews (
 	dislikes INTEGER NOT NULL
 );
 
+DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	body VARCHAR NOT NULL,
@@ -43,6 +48,7 @@ CREATE TABLE comments (
 	dislikes INTEGER NOT NULL
 );
 
+DROP TABLE IF EXISTS review_comment;
 CREATE TABLE review_comment (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	comment_id INTEGER REFERENCES comments,

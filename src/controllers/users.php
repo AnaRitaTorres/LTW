@@ -15,3 +15,11 @@ function getUser($id){
     $result = $stmt->fetchAll();
     return $result;
 }
+
+function userExists($name, $password, $email){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM users where first_name = ? AND password = ? AND email = ?');
+    $stmt->execute(array($name, $password, $email));
+    $result = $stmt->fetch();
+    return $result;
+}
