@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <div id="header">
 	<h1>Restaurant Reviews</h1>
 	<h2></h2>

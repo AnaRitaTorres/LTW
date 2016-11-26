@@ -8,18 +8,32 @@ function getUsers(){
     return $result;
 }
 
-function getUser($id){
+function getUserByID($id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM users where id = ?');
     $stmt->execute(array($id));
-    $result = $stmt->fetchAll();
+    $result = $stmt->fetch();
     return $result;
 }
 
-function userExists($name, $password, $email){
+function getUserByName($name){
     global $db;
-    $stmt = $db->prepare('SELECT * FROM users where first_name = ? AND password = ? AND email = ?');
-    $stmt->execute(array($name, $password, $email));
+    $stmt = $db->prepare('SELECT * FROM users where first_name = ?');
+    $stmt->execute(array($name));
     $result = $stmt->fetch();
     return $result;
+}
+
+function userExists($name, $password){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM users where first_name = ? AND password = ?');
+    $stmt->execute(array($name, $password));
+    $result = $stmt->fetch();
+    return $result;
+}
+
+function newUser($name, $password, $email){
+    global $db;
+    $stmt = $db->prepare("INSERT INTO users (first_name, password, email) values('$name', '$password', '$email')");
+    $stmt->execute();
 }

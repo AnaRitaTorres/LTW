@@ -3,24 +3,28 @@
 <head>
 	<title>Restaurant Reviews</title>
 	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="../public/css/stylesheet.css">
+	<link rel="stylesheet" href="/public/css/stylesheet.css">
 
     <?php
-        include_once ('/controllers/validation.php');
+		$db;
+        include_once ('controllers/validation.php');
+        include_once('database/connection.php');
+		include_once('controllers/users.php');
+		session_start();
+		$user = getUserByName($_SESSION["username"]);
     ?>
 </head>
 <body>
 <?
-include('templates/header.php');
+include('resources/templates/header.php');
 ?>
 
 <div id="content">
 	<div class="user">
-		<?//TODO send info to dabase?>
 		<form action="" method="post">
-			<input type="hidden" name="email" value=""><?//TODO get logged in user's email?>
+			<input type="hidden" name="email" value="">
 			<label>Name:
-				<input type="text" name="name">
+				Name: <input type="text" name="name" value="<?php echo $user['first_name'];?>">
 			</label>
 			<label>New Password:
 				<input type="password" name="password">
@@ -37,7 +41,7 @@ include('templates/header.php');
 </div>
 
 <?
-include('templates/footer.php');
+include('resources/templates/footer.php');
 ?>
 
 </body>

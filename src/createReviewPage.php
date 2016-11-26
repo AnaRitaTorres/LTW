@@ -1,12 +1,13 @@
+<?php
+include_once ('/controllers/validation.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Restaurant Reviews</title>
 	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="../public/css/stylesheet.css">
-    <?php
-        include_once ('/controllers/validation.php');
-    ?>
+	<link rel="stylesheet" href="/public/css/stylesheet.css">
 </head>
 <body>
 

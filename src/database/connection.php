@@ -1,4 +1,6 @@
 <?php
     global $db;
-    $db = new PDO('sqlite:../database/restaurants.db');
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/database/restaurants.db";
+    $db = new PDO("sqlite:$path", $path);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
