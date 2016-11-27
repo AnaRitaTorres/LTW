@@ -6,13 +6,9 @@
 	<link rel="stylesheet" href="public/css/stylesheet.css">
 </head>
 <body>
-  <?
-    include('/resources/templates/header.php');
-  ?>
-
-<div id="content">
-    <div class="user">
-        <form action="/controllers/registration.php" method="post">
+  <section id="content">
+      <h2>Register</h2>
+        <form action="/controllers/action_register.php" method="post">
             <label>Name:
                 <input type="text" name="name" required>
             </label>
@@ -27,11 +23,6 @@
             </label>
             <input type="submit" value="Login">
         </form>
-    </div>
-</div>
-
-<?
-include('templates/footer.php');
-?>
+  </section>
 </body>
 </html>

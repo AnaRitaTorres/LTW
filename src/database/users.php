@@ -1,6 +1,6 @@
 <?php
 
-function getUsers(){
+function getAllUsers(){
     global $db;
     $stmt = $db->prepare('SELECT * FROM users');
     $stmt->execute();
@@ -34,6 +34,9 @@ function userExists($name, $password){
 
 function newUser($name, $password, $email){
     global $db;
-    $stmt = $db->prepare("INSERT INTO users (first_name, password, email) values('$name', '$password', '$email')");
-    $stmt->execute();
+    $options = ['cost' => 12];
+    $stmt = $db->prepare('INSERT INTO users (first_name, last_name, password, email) values(?, ?, ?, ?)');
+    $afas = password_hash($password, PASSWORD_DEFAULT, $options);
+    echo $afas;
+    $stmt->execute(array($name, '', $afas, $email));
 }

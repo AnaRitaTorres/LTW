@@ -5,7 +5,7 @@ $password = null;
 
 $db;
 include_once($_SERVER['DOCUMENT_ROOT'] . '/database/connection.php');
-include_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/users.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/database/users.php');
 
 // clear out any existing session that may exist
 session_start();
@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['flash_error'] = "Invalid username or password";
             $_SESSION['authenticated'] = false;
             $_SESSION['username'] = null;
-            header('Location: /userAuthPage.php');
+            header('Location: /index.php');
         }
     }else {
-        header('Location: /userAuthPage.php');
+        header('Location: /index.php');
     }
 }

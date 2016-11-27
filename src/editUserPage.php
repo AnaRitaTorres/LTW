@@ -9,16 +9,12 @@
 		$db;
         include_once ('controllers/validation.php');
         include_once('database/connection.php');
-		include_once('controllers/users.php');
+		include_once('database/users.php');
 		session_start();
 		$user = getUserByName($_SESSION["username"]);
     ?>
 </head>
 <body>
-<?
-include('resources/templates/header.php');
-?>
-
 <div id="content">
 	<div class="user">
 		<form action="" method="post">
@@ -39,10 +35,5 @@ include('resources/templates/header.php');
 		</form>
 	</div>
 </div>
-
-<?
-include('resources/templates/footer.php');
-?>
-
 </body>
 </html>

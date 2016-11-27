@@ -5,7 +5,7 @@ $password = null;
 
 $db;
 include_once($_SERVER['DOCUMENT_ROOT'] . '/database/connection.php');
-include_once($_SERVER['DOCUMENT_ROOT'] . '/controllers/users.php');
+include_once($_SERVER['DOCUMENT_ROOT'] . '/database/users.php');
 
 // clear out any existing session that may exist
 session_start();
@@ -18,8 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $passwordRepeat = $_POST["password2"];
         $email = $_POST["email"];
 
-        if($password != $passwordRepeat)
+        if(strcmp($password, $passwordRepeat) != 0) {
             header('Location: /registrationPage.php');
+            exit;
+        }
 
         if (!userExists($username, $password)) {
             newUser($username, $password, $email);

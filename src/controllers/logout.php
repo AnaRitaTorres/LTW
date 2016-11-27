@@ -3,4 +3,4 @@
     $_SESSION['authenticated'] = false;
     session_destroy();
 
-    header('Location: /userAuthPage.php');
+    header('Location: /index.php');
