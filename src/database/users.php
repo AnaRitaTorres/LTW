@@ -16,18 +16,18 @@ function getUserByID($id){
     return $result;
 }
 
-function getUserByName($firstName,$lastName){
+function getUserByName($username){
     global $db;
-    $stmt = $db->prepare('SELECT * FROM users where first_name = ? AND last_name = ?');
-    $stmt->execute(array($firstName,$lastName));
+    $stmt = $db->prepare('SELECT * FROM users where username = ?');
+    $stmt->execute(array($username));
     $result = $stmt->fetch();
     return $result;
 }
 
-function userExists($name, $password){
+function userExists($username, $password){
     global $db;
-    $stmt = $db->prepare('SELECT * FROM users where first_name = ? AND password = ?');
-    $stmt->execute(array($name, $password));
+    $stmt = $db->prepare('SELECT * FROM users where username = ? AND password = ?');
+    $stmt->execute(array($username, $password));
     $result = $stmt->fetch();
     return $result;
 }
@@ -35,10 +35,9 @@ function userExists($name, $password){
 function newUser($name, $password, $email){
     global $db;
     $options = ['cost' => 12];
-    $stmt = $db->prepare('INSERT INTO users (first_name, last_name, password, email) values(?, ?, ?, ?)');
-    $afas = password_hash($password, PASSWORD_DEFAULT, $options);
-    echo $afas;
-    $stmt->execute(array($name, '', $afas, $email));
+    $stmt = $db->prepare('INSERT INTO users (user_name, first_name, last_name, password, email) values(?, ?, ?, ?, ?)');
+    $encryptedPass = password_hash($password, PASSWORD_DEFAULT, $options);
+    $stmt->execute(array($name, '', '', $encryptedPass, $email));
 }
 
 function deleteUserByID($id){
@@ -47,10 +46,10 @@ function deleteUserByID($id){
     $stmt->execute(array($id));
 }
 
-function deleteUserByName($firstName,$lastNam){
+function deleteUserByName($username){
     global $db;
-    $stmt = $db->prepare('DELETE * FROM users where first_name = ? AND last_name = ?');
-    $stmt->execute(array($firstName,$lastName));
+    $stmt = $db->prepare('DELETE * FROM users where username = ?');
+    $stmt->execute(array($username));
 }
 
 function deleteUserByEmail($email){
@@ -59,9 +58,9 @@ function deleteUserByEmail($email){
     $stmt->execute(array($email));
 }
 
-function updateUser($id,$password, $email,$adress){
+function updateUser($id , $password, $firstName, $lastName, $age, $address){
   global $db;
-  $stmt = $db->prepare('UPDATE users SET password = password, email = email, adress = adress where id=?');
-  $stmt->execute(array($name, $password, $email,$adress));
+  $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?,address = ?, age = ? where id=?');
+  $stmt->execute(array($password, $firstName, $lastName, $age, $address, $id));
 
 }

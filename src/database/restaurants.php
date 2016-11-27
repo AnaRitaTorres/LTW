@@ -42,8 +42,8 @@ function newRestaurant($name, $description, $category){
     $stmt->execute(array($name, $description, $category));
 }
 
-function updateRestaurant($id,$description,$image,$link){
+function updateRestaurant($id,$description, $link){
   global $db;
-  $stmt = $db->prepare('UPDATE restaurants SET description = description, image = image, link = link where id =?');
-  $stmt->execute(array($name,$description,$image,$link));
+  $stmt = $db->prepare('UPDATE restaurants SET description = ?, link = ? where id =?');
+  $stmt->execute(array($description,$link,$id));
 }

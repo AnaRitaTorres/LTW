@@ -20,19 +20,11 @@ function deleteComment($id){
   $stmt->execute(array($id));
 }
 
-function getCommentLikes($id){
+function getComment($id){
   global $db;
   $stmt = $db->prepare('SELECT likes FROM comments where id = ?');
   $stmt->execute(array($id));
-  $result = $stmt->fetchAll();
-  return $result;
-}
-
-function getCommentDislikes($id){
-  global $db;
-  $stmt = $db->prepare('SELECT dislikes FROM comments where id = ?');
-  $stmt->execute(array($id));
-  $result = $stmt->fetchAll();
+  $result = $stmt->fetch();
   return $result;
 }
 

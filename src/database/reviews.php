@@ -21,27 +21,11 @@ function deleteReview($id){
   $stmt->execute(array($id));
 }
 
-function getReviewLikes($id){
+function getReview($id){
   global $db;
   $stmt = $db->prepare('SELECT likes FROM reviews where id = ?');
   $stmt->execute(array($id));
-  $result = $stmt->fetchAll();
-  return $result;
-}
-
-function getReviewDislikes($id){
-  global $db;
-  $stmt = $db->prepare('SELECT dislikes FROM reviews where id = ?');
-  $stmt->execute(array($id));
-  $result = $stmt->fetchAll();
-  return $result;
-}
-
-function getReviewScore($id){
-  global $db;
-  $stmt = $db->prepare('SELECT score FROM reviews where id = ?');
-  $stmt->execute(array($id));
-  $result = $stmt->fetchAll();
+  $result = $stmt->fetch();
   return $result;
 }
 
