@@ -8,7 +8,7 @@ function getAllRestaurants(){
     return $result;
 }
 
-function getRestaurant($id){
+function getRestaurantByID($id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM restaurants where id = ?');
     $stmt->execute(array($id));
@@ -16,8 +16,34 @@ function getRestaurant($id){
     return $result;
 }
 
+function getRestaurantByName($name){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM restaurants where name = ?');
+    $stmt->execute(array($name));
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
+function deleteRestaurantByID($id){
+    global $db;
+    $stmt = $db->prepare('DELETE * FROM restaurants where id = ?');
+    $stmt->execute(array($id));
+}
+
+function deleteRestaurantByName($name){
+    global $db;
+    $stmt = $db->prepare('DELETE * FROM restaurants where name = ?');
+    $stmt->execute(array($name));
+}
+
 function newRestaurant($name, $description, $category){
     global $db;
     $stmt = $db->prepare('INSERT INTO restaurants (name, description, category) values(?, ?, ?)');
     $stmt->execute(array($name, $description, $category));
+}
+
+function updateRestaurant($id,$description,$image,$link){
+  global $db;
+  $stmt = $db->prepare('UPDATE restaurants SET description = description, image = image, link = link where id =?');
+  $stmt->execute(array($name,$description,$image,$link));
 }

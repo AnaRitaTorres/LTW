@@ -14,3 +14,39 @@ function newReview($score, $body, $user_id, $restaurant_id){
     $stmt = $db->prepare('INSERT INTO reviews (user_id, restaurant_id, score, body, date, likes, dislikes) values(?, ?, ?, ?, ?, ?, ?)');
     $stmt->execute(array($user_id, $restaurant_id, $score, $body, $date, 0, 0));
 }
+
+function deleteReview($id){
+  global $db;
+  $stmt = $db->prepare('DELETE * FROM reviews where id = ?');
+  $stmt->execute(array($id));
+}
+
+function getReviewLikes($id){
+  global $db;
+  $stmt = $db->prepare('SELECT likes FROM reviews where id = ?');
+  $stmt->execute(array($id));
+  $result = $stmt->fetchAll();
+  return $result;
+}
+
+function getReviewDislikes($id){
+  global $db;
+  $stmt = $db->prepare('SELECT dislikes FROM reviews where id = ?');
+  $stmt->execute(array($id));
+  $result = $stmt->fetchAll();
+  return $result;
+}
+
+function getReviewScore($id){
+  global $db;
+  $stmt = $db->prepare('SELECT score FROM reviews where id = ?');
+  $stmt->execute(array($id));
+  $result = $stmt->fetchAll();
+  return $result;
+}
+
+function updateReview($id,$score,$body){
+  global $db;
+  $stmt = $db->prepare('UPDATE reviews SET score = score, body = body where id = ?');
+  $stmt->execute(array($id,$score,$body));
+}
