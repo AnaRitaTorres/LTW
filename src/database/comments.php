@@ -33,3 +33,4 @@ function updateComment($id,$body){
   $stmt = $db->prepare('UPDATE comments SET body = body where id = ?');
   $stmt->execute(array($id,$body));
 }
+?>

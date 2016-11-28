@@ -62,5 +62,5 @@ function updateUser($id , $password, $firstName, $lastName, $age, $address){
   global $db;
   $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?,address = ?, age = ? where id=?');
   $stmt->execute(array($password, $firstName, $lastName, $age, $address, $id));
-
 }
+?>

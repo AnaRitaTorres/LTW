@@ -47,3 +47,4 @@ function updateRestaurant($id,$description, $link){
   $stmt = $db->prepare('UPDATE restaurants SET description = ?, link = ? where id =?');
   $stmt->execute(array($description,$link,$id));
 }
+?>

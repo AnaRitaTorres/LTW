@@ -6,3 +6,4 @@ if (!$_SESSION['authenticated']) {
     header("Location: /login_form.php");
     exit;
 }
+?>

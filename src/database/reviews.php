@@ -34,3 +34,4 @@ function updateReview($id,$score,$body){
   $stmt = $db->prepare('UPDATE reviews SET score = score, body = body where id = ?');
   $stmt->execute(array($id,$score,$body));
 }
+?>
