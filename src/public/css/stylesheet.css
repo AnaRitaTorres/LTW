@@ -1,0 +1,28 @@
+html{
+    background-image: url("../../resources/2.jpg");
+    background-size: cover;
+}
+
+body{
+    padding: 50px;
+    padding-top: 0px;
+}
+
+h1{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 45px;
+    color: #000000;
+}
+
+h2{
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    font-size: 35px;
+    color: #000000;
+}
+
+#header{
+    background-color:#990000;
+    padding:40px;
+    margin: 0px;
+    text-align: center;
+}

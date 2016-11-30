@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION["username"] = $username;
             header('Location: /mainPage.php');
         } else {
-            $_SESSION['flash_error'] = "Invalid username or password";
+            $_SESSION['flash_error'] = "Invalid Username or Password";
             $_SESSION['authenticated'] = false;
             $_SESSION['username'] = null;
             header('Location: /registrationPage.php');

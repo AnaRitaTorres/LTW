@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Restaurant Reviews</title>
+	<title>RestaurantFinder - Register</title>
 	<meta charset='UTF-8'>
 	<link rel="stylesheet" href="public/css/stylesheet.css">
 </head>
 <body>
+<div id="header">
+    <img src ="resources/logo.png" width="150" height="150">
+    <h1>RestaurantFinder</h1>
+</div>
   <section id="content">
       <h2>Register</h2>
         <form action="/controllers/action_register.php" method="post">

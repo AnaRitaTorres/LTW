@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Restaurant Reviews</title>
+	<title>RestaurantFinder - User</title>
 	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="/public/css/stylesheet.css">
+	<link rel="stylesheet" href="public/css/stylesheet.css">
 
     <?php
 		$db;
@@ -14,7 +14,11 @@
     ?>
 </head>
 <body>
+<div id="header">
+    <h1>RestaurantFinder</h1>
+</div>
 <div id="content">
+    <h2>Edit Account</h2>
 	<div class="user">
 		<form action="/controllers/action_updateUser.php" method="post">
             <input type="hidden" name="id" value="<?php echo $user['id'];?>">
