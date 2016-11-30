@@ -15,6 +15,7 @@
 </head>
 <body>
 <div id="header">
+    <img src ="resources/logo.png" width="150" height="150">
     <h1>RestaurantFinder</h1>
 </div>
 <div id="content">

@@ -18,6 +18,8 @@ h2{
     font-family:"Trebuchet MS", Helvetica, sans-serif;
     font-size: 35px;
     color: #000000;
+    margin:0px;
+    padding-bottom: 25px;
 }
 
 #header{
@@ -25,4 +27,9 @@ h2{
     padding:40px;
     margin: 0px;
     text-align: center;
+}
+
+#content{
+    background-color: #ffffff;
+    padding:80px;
 }
