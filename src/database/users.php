@@ -35,7 +35,7 @@ function userExists($username, $password){
 function newUser($name, $password, $email){
     global $db;
     $options = ['cost' => 12];
-    $stmt = $db->prepare('INSERT INTO users (user_name, first_name, last_name, password, email) values(?, ?, ?, ?, ?)');
+    $stmt = $db->prepare('INSERT INTO users (username, first_name, last_name, password, email) values(?, ?, ?, ?, ?)');
     $encryptedPass = password_hash($password, PASSWORD_DEFAULT, $options);
     $stmt->execute(array($name, '', '', $encryptedPass, $email));
 }

@@ -6,7 +6,7 @@
 <div class="form">
     <p>Welcome <?php session_start(); echo $_SESSION['username']; ?>!</p>
     <a href="editUserPage.php">Edit User Information</a><br>
-    <a href="createRestaurantPage.php">New Restaurant</a><br>
+    <a href="restaurantsPage.php">Restaurants</a><br>
     <a href="/controllers/logout.php">Logout</a>
 </div>
 

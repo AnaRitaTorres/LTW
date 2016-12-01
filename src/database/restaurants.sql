@@ -16,7 +16,6 @@ CREATE TABLE restaurants (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	name VARCHAR NOT NULL,
 	description VARCHAR NOT NULL,
-	image_id INTEGER REFERENCES images,
 	price FLOAT,
 	category VARCHAR NOT NULL,
 	link VARCHAR,
@@ -61,6 +60,7 @@ CREATE TABLE review_comment (
 DROP TABLE IF EXISTS images;
 CREATE TABLE images (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+	restaurant_id INTEGER REFERENCES restaurants,
   path VARCHAR NOT NULL
 );
 
@@ -89,80 +89,61 @@ insert into users (id, username, first_name, last_name, password, email, age, ge
 insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (23, 'ajordanm', 'Arthur', 'Jordan', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'ajordanm@toplist.cz', 27, 'Male', '769 Oakridge Hill');
 insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (24, 'wdayn', 'William', 'Day', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'wdayn@networkadvertising.org', 100, 'Male', '02476 Emmet Alley');
 insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (25, 'jbankso', 'Jennifer', 'Banks', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'jbankso@java.com', 40, 'Female', '8466 Carey Lane');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (26, 'gperryp', 'Gregory', 'Perry', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'gperryp@newsvine.com', 33, 'Male', '971 Birchwood Hill');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (27, 'jlongq', 'John', 'Long', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'jlongq@blinklist.com', 72, 'Male', '99776 Homewood Street');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (28, 'kfrazierr', 'Kevin', 'Frazier', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'kfrazierr@wunderground.com', 41, 'Male', '44 Randy Drive');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (29, 'hmartins', 'Howard', 'Martin', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'hmartins@studiopress.com', 38, 'Male', '1 Vernon Center');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (30, 'cfernandezt', 'Catherine', 'Fernandez', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'cfernandezt@bbc.co.uk', 63, 'Female', '98166 Mitchell Lane');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (31, 'ghicksu', 'Gerald', 'Hicks', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'ghicksu@msn.com', 37, 'Male', '65922 Fair Oaks Court');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (32, 'rcollinsv', 'Robin', 'Collins', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'rcollinsv@networkadvertising.org', 46, 'Female', '61465 Dwight Junction');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (33, 'rperkinsw', 'Randy', 'Perkins', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'rperkinsw@mysql.com', 76, 'Male', '3315 Kedzie Center');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (34, 'jsanchezx', 'Jacqueline', 'Sanchez', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'jsanchezx@csmonitor.com', 71, 'Female', '0 Spaight Pass');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (35, 'mlynchy', 'Michelle', 'Lynch', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'mlynchy@opensource.org', 66, 'Female', '18788 Hoepker Plaza');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (36, 'sjordanz', 'Sean', 'Jordan', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'sjordanz@zdnet.com', 40, 'Male', '953 Loeprich Hill');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (37, 'rrice10', 'Robert', 'Rice', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'rrice10@cnet.com', 76, 'Male', '9 Utah Way');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (38, 'smoreno11', 'Sharon', 'Moreno', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'smoreno11@geocities.com', 59, 'Female', '9 Loeprich Way');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (39, 'spierce12', 'Sandra', 'Pierce', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'spierce12@ehow.com', 94, 'Female', '91705 Lindbergh Plaza');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (40, 'kwatkins13', 'Keith', 'Watkins', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'kwatkins13@drupal.org', 37, 'Male', '8074 East Circle');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (41, 'lbennett14', 'Laura', 'Bennett', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'lbennett14@soup.io', 41, 'Female', '76 Packers Junction');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (42, 'fbarnes15', 'Frank', 'Barnes', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'fbarnes15@sun.com', 61, 'Male', '92218 Lunder Junction');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (43, 'kstevens16', 'Kelly', 'Stevens', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'kstevens16@prweb.com', 28, 'Female', '3 Blaine Center');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (44, 'woliver17', 'Willie', 'Oliver', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'woliver17@cargocollective.com', 18, 'Male', '3683 6th Parkway');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (45, 'jhayes18', 'Jeffrey', 'Hayes', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'jhayes18@sciencedirect.com', 30, 'Male', '719 Annamark Point');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (46, 'cgomez19', 'Carolyn', 'Gomez', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'cgomez19@bravesites.com', 70, 'Female', '280 Shelley Circle');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (47, 'scruz1a', 'Scott', 'Cruz', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'scruz1a@webeden.co.uk', 85, 'Male', '9431 Mosinee Trail');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (48, 'panderson1b', 'Phillip', 'Anderson', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'panderson1b@hp.com', 84, 'Male', '030 Graedel Way');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (49, 'bross1c', 'Bruce', 'Ross', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'bross1c@ask.com', 71, 'Male', '7 Cambridge Trail');
-insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (50, 'lmarshall1d', 'Lisa', 'Marshall', 'c7ac8db99f1fde1d409bfab46c2843279df170fb', 'lmarshall1d@dailymotion.com', 28, 'Female', '17 Kinsman Pass');
+insert into users (id, username, first_name, last_name, password, email, age, gender, address) values (26, 'renatoabreu', 'Renato', 'Abreu', '12345', 'jbankso@java.com', 40, 'Male', '8466 Carey Lane');
 
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (1, 'Feeney-Ryan', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+insert into restaurants (id, name, description, price, category, link, address) values (1, 'Feeney-Ryan', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
 
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 1, '$134.20', 'Drive-In', 'https://sourceforge.net', '889 Dunning Terrace');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (2, 'Sauer-Zboncak', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 2, '$12.32', 'Seafood', 'http://mlb.com', '17980 High Crossing Pass');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (3, 'Hamill, West and Towne', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', '$134.20', 'Drive-In', 'https://sourceforge.net', '889 Dunning Terrace');
+insert into restaurants (id, name, description, price, category, link, address) values (2, 'Sauer-Zboncak', 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', '$12.32', 'Seafood', 'http://mlb.com', '17980 High Crossing Pass');
+insert into restaurants (id, name, description, price, category, link, address) values (3, 'Hamill, West and Towne', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.
 
-Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 3, '$129.82', 'Asian', 'https://nih.gov', '814 Hovde Hill');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (4, 'Sanford LLC', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', 4, '$92.34', 'Drive-In', 'http://wikispaces.com', '89258 Ohio Way');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (5, 'Purdy Group', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 5, '$82.48', 'Gourmet', 'https://tumblr.com', '9474 International Plaza');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (6, 'Bosco-Roob', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 6, '$188.77', 'Fast Food', 'https://reverbnation.com', '66 Bultman Circle');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (7, 'Wisoky-Hand', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 7, '$132.26', 'Seafood', 'http://devhub.com', '6104 Schlimgen Center');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (8, 'Willms-Cummerata', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
+Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', '$129.82', 'Asian', 'https://nih.gov', '814 Hovde Hill');
+insert into restaurants (id, name, description, price, category, link, address) values (4, 'Sanford LLC', 'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', '$92.34', 'Drive-In', 'http://wikispaces.com', '89258 Ohio Way');
+insert into restaurants (id, name, description, price, category, link, address) values (5, 'Purdy Group', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '$82.48', 'Gourmet', 'https://tumblr.com', '9474 International Plaza');
+insert into restaurants (id, name, description, price, category, link, address) values (6, 'Bosco-Roob', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', '$188.77', 'Fast Food', 'https://reverbnation.com', '66 Bultman Circle');
+insert into restaurants (id, name, description, price, category, link, address) values (7, 'Wisoky-Hand', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', '$132.26', 'Seafood', 'http://devhub.com', '6104 Schlimgen Center');
+insert into restaurants (id, name, description, price, category, link, address) values (8, 'Willms-Cummerata', 'In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.
 
-Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', 8, '$4.06', 'Asian', 'https://rambler.ru', '05 Corscot Center');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (9, 'Jast LLC', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 9, '$152.17', 'Fast Food', 'http://hp.com', '831 Hoffman Parkway');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (10, 'Wiegand, Schaefer and Hilll', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
+Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.', '$4.06', 'Asian', 'https://rambler.ru', '05 Corscot Center');
+insert into restaurants (id, name, description, price, category, link, address) values (9, 'Jast LLC', 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', '$152.17', 'Fast Food', 'http://hp.com', '831 Hoffman Parkway');
+insert into restaurants (id, name, description, price, category, link, address) values (10, 'Wiegand, Schaefer and Hilll', 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.
 
-Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', 10, '$169.14', 'Traditional Cuisine', 'http://fema.gov', '9 Elmside Junction');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (11, 'Turner, Kulas and Romaguera', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 11, '$73.64', 'Fast Food', 'http://oaic.gov.au', '28 International Trail');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (12, 'Rodriguez-Brakus', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', 12, '$191.92', 'Gourmet', 'http://webeden.co.uk', '5 Talmadge Avenue');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (13, 'Flatley, Weissnat and Koepp', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', '$169.14', 'Traditional Cuisine', 'http://fema.gov', '9 Elmside Junction');
+insert into restaurants (id, name, description, price, category, link, address) values (11, 'Turner, Kulas and Romaguera', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '$73.64', 'Fast Food', 'http://oaic.gov.au', '28 International Trail');
+insert into restaurants (id, name, description, price, category, link, address) values (12, 'Rodriguez-Brakus', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.', '$191.92', 'Gourmet', 'http://webeden.co.uk', '5 Talmadge Avenue');
+insert into restaurants (id, name, description, price, category, link, address) values (13, 'Flatley, Weissnat and Koepp', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
-Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 13, '$217.62', 'Drive-In', 'http://economist.com', '951 Norway Maple Terrace');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (14, 'Kris and Sons', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
+Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', '$217.62', 'Drive-In', 'http://economist.com', '951 Norway Maple Terrace');
+insert into restaurants (id, name, description, price, category, link, address) values (14, 'Kris and Sons', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
 
-Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 14, '$23.51', 'Take-out', 'http://ask.com', '64054 Hooker Terrace');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (15, 'Metz Group', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 15, '$60.29', 'Asian', 'https://plala.or.jp', '62 Fremont Center');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (16, 'Marks, Ritchie and Nader', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 16, '$59.12', 'Asian', 'http://cisco.com', '0 Pennsylvania Road');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (17, 'Spinka, Braun and Kirlin', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
+Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', '$23.51', 'Take-out', 'http://ask.com', '64054 Hooker Terrace');
+insert into restaurants (id, name, description, price, category, link, address) values (15, 'Metz Group', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', '$60.29', 'Asian', 'https://plala.or.jp', '62 Fremont Center');
+insert into restaurants (id, name, description, price, category, link, address) values (16, 'Marks, Ritchie and Nader', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', '$59.12', 'Asian', 'http://cisco.com', '0 Pennsylvania Road');
+insert into restaurants (id, name, description, price, category, link, address) values (17, 'Spinka, Braun and Kirlin', 'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.
 
-Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', 17, '$149.21', 'Traditional Cuisine', 'http://seesaa.net', '5 Manitowish Alley');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (18, 'Collins-Kertzmann', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
+Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.', '$149.21', 'Traditional Cuisine', 'http://seesaa.net', '5 Manitowish Alley');
+insert into restaurants (id, name, description, price, category, link, address) values (18, 'Collins-Kertzmann', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
 
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 18, '$237.45', 'Fast Food', 'https://weibo.com', '42598 Manley Lane');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (19, 'Pacocha, Beer and Lowe', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
+Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', '$237.45', 'Fast Food', 'https://weibo.com', '42598 Manley Lane');
+insert into restaurants (id, name, description, price, category, link, address) values (19, 'Pacocha, Beer and Lowe', 'Phasellus in felis. Donec semper sapien a libero. Nam dui.
 
-Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 19, '$240.12', 'Asian', 'http://loc.gov', '66 Wayridge Center');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (20, 'Leffler LLC', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
+Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', '$240.12', 'Asian', 'http://loc.gov', '66 Wayridge Center');
+insert into restaurants (id, name, description, price, category, link, address) values (20, 'Leffler LLC', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.
 
-In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', 20, '$23.32', 'Take-out', 'http://salon.com', '9047 Dapin Crossing');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (21, 'Roob-Beahan', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 21, '$131.48', 'Traditional Cuisine', 'http://house.gov', '9099 Sheridan Hill');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (22, 'Koss, Gleichner and Wuckert', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
+In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', '$23.32', 'Take-out', 'http://salon.com', '9047 Dapin Crossing');
+insert into restaurants (id, name, description, price, category, link, address) values (21, 'Roob-Beahan', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', '$131.48', 'Traditional Cuisine', 'http://house.gov', '9099 Sheridan Hill');
+insert into restaurants (id, name, description, price, category, link, address) values (22, 'Koss, Gleichner and Wuckert', 'Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.
 
-Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', 22, '$15.39', 'Seafood', 'https://networksolutions.com', '7777 Tomscot Plaza');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (23, 'Balistreri, Farrell and Kub', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
+Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', '$15.39', 'Seafood', 'https://networksolutions.com', '7777 Tomscot Plaza');
+insert into restaurants (id, name, description, price, category, link, address) values (23, 'Balistreri, Farrell and Kub', 'Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.
 
-Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 23, '$239.69', 'Asian', 'http://friendfeed.com', '42 Village Green Center');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (24, 'Harvey-Stamm', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', 24, '$225.02', 'Gourmet', 'http://pen.io', '7146 West Trail');
-insert into restaurants (id, name, description, image_id, price, category, link, address) values (25, 'Baumbach Inc', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
+Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', '$239.69', 'Asian', 'http://friendfeed.com', '42 Village Green Center');
+insert into restaurants (id, name, description, price, category, link, address) values (24, 'Harvey-Stamm', 'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.', '$225.02', 'Gourmet', 'http://pen.io', '7146 West Trail');
+insert into restaurants (id, name, description, price, category, link, address) values (25, 'Baumbach Inc', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
 
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 25, '$142.92', 'Gourmet', 'https://exblog.jp', '39 Stone Corner Center');
+Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', '$142.92', 'Gourmet', 'https://exblog.jp', '39 Stone Corner Center');
+
+insert into restaurant_user(id, restaurant_id, user_id) values(1, 12, 26);
+insert into restaurant_user(id, restaurant_id, user_id) values(2, 15, 26);
+insert into restaurant_user(id, restaurant_id, user_id) values(3, 14, 26);
+insert into restaurant_user(id, restaurant_id, user_id) values(4, 5, 26);

@@ -1,3 +1,3 @@
-<form action="action_logout.php">
+<form action="/controllers/logout.php">
   <?=$_SESSION['username']?> <input type="submit" value="Logout">
 </form>

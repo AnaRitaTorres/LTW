@@ -8,11 +8,25 @@ function getAllRestaurants(){
     return $result;
 }
 
+function getUserRestaurants($id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM restaurant_user where user_id = ?');
+    $stmt->execute(array($id));
+    $result = $stmt->fetchAll();
+
+    $restaurants = [];
+    foreach ($result as $row){
+        array_push($restaurants, getRestaurantByID($row["restaurant_id"]));
+    }
+
+    return $restaurants;
+}
+
 function getRestaurantByID($id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM restaurants where id = ?');
     $stmt->execute(array($id));
-    $result = $stmt->fetchAll();
+    $result = $stmt->fetch();
     return $result;
 }
 
@@ -20,7 +34,7 @@ function getRestaurantByName($name){
     global $db;
     $stmt = $db->prepare('SELECT * FROM restaurants where name = ?');
     $stmt->execute(array($name));
-    $result = $stmt->fetchAll();
+    $result = $stmt->fetch();
     return $result;
 }
 
