@@ -19,6 +19,8 @@ $user_restaurants = getUserRestaurants($user["id"]);
             </li>
             <?php endforeach; ?>
         </ul>
+
+        <input type="button" onclick="location.href='/createRestaurantPage.php';" value="New Restaurant" />
     </div>
 
 <h3>All Restaurants</h3>

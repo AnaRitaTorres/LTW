@@ -74,6 +74,12 @@ function newRestaurant($name, $description, $category){
     $stmt->execute(array($name, $description, $category));
 }
 
+function new_restaurant_user($user_id, $restaurant_id){
+    global $db;
+    $stmt = $db->prepare('INSERT INTO restaurant_user (restaurant_id, user_id) values(?, ?)');
+    $stmt->execute(array($restaurant_id, $user_id));
+}
+
 function updateRestaurant($id,$description, $link){
   global $db;
   $stmt = $db->prepare('UPDATE restaurants SET description = ?, link = ? where id =?');
