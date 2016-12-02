@@ -22,6 +22,24 @@ function getUserRestaurants($id){
     return $restaurants;
 }
 
+function isOwner($user_id, $restaurant_id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM restaurant_user where user_id = ? AND restaurant_id = ?');
+    $stmt->execute(array($user_id, $restaurant_id));
+    $result = $stmt->fetch();
+    if($result != null)
+        return true;
+    else return false;
+}
+
+function getRestaurantReviews($restaurant_id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM reviews where restaurant_id = ?');
+    $stmt->execute(array($restaurant_id));
+    $result = $stmt->fetchAll();
+    return $result;
+}
+
 function getRestaurantByID($id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM restaurants where id = ?');
