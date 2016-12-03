@@ -15,11 +15,11 @@
 </head>
 <body>
 <div id="header">
-    <img src ="resources/logo.png" width="150" height="150">
+    <img src ="resources/logo1.png" width="150" height="150">
     <h1>RestaurantFinder</h1>
 </div>
 <div id="content">
-    <h2>Edit Account</h2>
+    <h2>Edit User's Account</h2>
 	<div class="user">
 		<form action="/controllers/action_updateUser.php" method="post">
             <input type="hidden" name="id" value="<?php echo $user['id'];?>">

@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="header">
-    <img src ="resources/logo.png" width="150" height="150">
+    <img src ="resources/logo1.png" width="150" height="150">
     <h1>RestaurantFinder</h1>
 </div>
 <div id="content">
@@ -29,7 +29,7 @@
             Category: <input type="text" name="category" placeholder="<?php echo $restaurant['category'];?>"/><br>
             Price: <input type="number" name="price" placeholder="<?php echo $restaurant['price'];?>"/><br>
             Link: <input type="url" name="link" placeholder="<?php echo $restaurant['link'];?>"/><br>
-            Adress: <input type="text" name="adress" placeholder="<?php echo $restaurant['adress'];?>"/><br>
+            Address: <input type="text" name="address" placeholder="<?php echo $restaurant['address'];?>"/><br>
             <input type="submit" value="Save">
         </form>
     </div>
