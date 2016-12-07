@@ -1,3 +1,3 @@
 <?php
-    include('resources/templates/header.php');
-    include('resources/templates/footer.php');
+    include('templates/header.php');
+    include('templates/footer.php');

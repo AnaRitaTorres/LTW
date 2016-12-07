@@ -3,30 +3,23 @@
 <head>
 	<title>RestaurantFinder - Register</title>
 	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="public/css/stylesheet.css">
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
 </head>
 <body>
 <div id="header">
-    <img src ="resources/logo.png" width="150" height="150">
-    <h1>RestaurantFinder</h1>
+    <img scr="images/logo1.png">
+    <h1>Restaurant Reviewer</h1>
 </div>
   <section id="content">
       <h2>Register</h2>
-        <form action="/controllers/action_register.php" method="post">
-            <label>Name:
-                <input type="text" name="name" required>
-            </label>
-            <label>Email:
-                <input type="email" name="email" required>
-            </label>
-            <label>Password:
-                <input type="password" name="password" required>
-            </label>
-            <label>Repeat password:
-                <input type="password" name="password2" required>
-            </label>
-            <input type="submit" value="Login">
-        </form>
+      <form action="/controllers/action_register.php" method="post">
+          Name: <input type="text" name="name" required><br>
+          Email: <input type="email" name="email" required><br>
+          Password: <input type="password" name="password" required><br>
+          Repeat Password: <input type="password" name="password2" required><br>
+          <input type="submit" value="Login">
+      </form>
   </section>
 </body>
 </html>

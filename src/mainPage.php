@@ -1,6 +1,6 @@
 <?
     include('controllers/validation.php');
-	include('resources/templates/header.php');
+	include('templates/header.php');
 ?>
 
 <div class="form">
@@ -11,5 +11,5 @@
 </div>
 
 <?
-	include('resources/templates/footer.php');
+	include('templates/footer.php');
 ?>
