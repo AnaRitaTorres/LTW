@@ -7,28 +7,29 @@ include_once ('/controllers/validation.php');
 <head>
 	<title>Restaurant Reviews</title>
 	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="/public/css/stylesheet.css">
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
 </head>
 <body>
-
-<?
-include('templates/header.php');
-?>
-
+<header>
+    <?php
+    include('templates/header.php');
+    ?>
+</header>
 <div id="content">
 	<div class="review">
 		<?//TODO?>
 		<form action="" method="post">
 			<label>Title:
 				<input type="text" name="title" required>
-			</label>
+			</label><br>
 			<label>Rating:
 				<input type="number" name="rating" required>/10
-			</label>
+			</label><br>
 			<label>Body:
-				<textarea rows="10" cols="100" name="body" required>
+				<textarea rows="10" cols="80" name="body" required>
                 </textarea>
-			</label>
+			</label><br>
 			<input type="submit" value="Save">
 		</form>
 	</div>
