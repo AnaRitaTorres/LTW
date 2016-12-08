@@ -17,5 +17,5 @@ else $description = $_POST["link"];
 
 updateRestaurant($id,$description,$link);
 
-header('Location: /mainPage.php');
+header('Location: ../mainPage.php');
 ?>

@@ -1,8 +1,16 @@
 <?php
-include('controllers/validation.php');
 include('resources/templates/header.php');
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RestaurantFinder - Restaurant</title>
+    <meta charset='UTF-8'>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
+</head>
+<body>
     <div class="createRestaurant">
         <form action="/controllers/action_createRestaurant.php" method="post">
             <label>Name:
@@ -29,7 +37,9 @@ include('resources/templates/header.php');
             <input type="submit" value="Save">
         </form>
     </div>
+</body>
+</html>
 
-<?
-    include('templates/footer.php');
+<?php
+    include('resources/templates/footer.php');
 ?>

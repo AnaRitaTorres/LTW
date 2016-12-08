@@ -12,5 +12,5 @@
 			<input type="submit" value="Login">
 		</form>
 	</div>
-	<p>Not registered yet? <a href='/registrationPage.php'>Register Here</a></p>
+	<p>Not Registered Yet? <a href='../../registrationPage.php'>Register Here</a></p>
 </div>

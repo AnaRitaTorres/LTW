@@ -35,14 +35,14 @@ $reviews = getRestaurantReviews($restaurant["id"]);
             <input type="hidden" name="restaurant_id" value="<?php echo $restaurant["id"];?>">
             <label>Title:
                 <input type="text" name="title" required>
-            </label>
+            </label><br>
             <label>Rating:
                 <input type="number" name="rating" required>/10
-            </label>
+            </label><br>
             <label>Body:
                 <textarea rows="10" cols="100" name="body" required>
                 </textarea>
-            </label>
+            </label><br>
             <input type="submit" value="Save">
         </form>
     </div>

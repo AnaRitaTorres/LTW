@@ -20,15 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             session_start();
             $_SESSION["authenticated"] = 'true';
             $_SESSION["username"] = $username;
-            header('Location: /mainPage.php');
+            header('Location: ../mainPage.php');
         } else {
             $_SESSION['flash_error'] = "Invalid username or password";
             $_SESSION['authenticated'] = false;
             $_SESSION['username'] = null;
-            header('Location: /index.php');
+            header('Location: ../index.php');
         }
     }else {
-        header('Location: /index.php');
+        header('Location: ../index.php');
     }
 }
 
