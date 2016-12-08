@@ -1,3 +1,8 @@
+<?php
+include('controllers/validation.php');
+include('templates/header.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,11 +10,6 @@
     <meta charset='UTF-8'>
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
-
-    <?php
-    include('controllers/validation.php');
-    include('templates/header.php');
-    ?>
 </head>
 <body>
 <header>
@@ -41,9 +41,9 @@
             <input type="submit" value="Save">
         </form>
     </div>
-
-<?php
-    include('templates/footer.php');
-?>
 </body>
 </html>
+
+<?php
+include('templates/footer.php');
+?>

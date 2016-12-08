@@ -1,6 +1,6 @@
 <?php
 include('controllers/validation.php');
-include('resources/templates/header.php');
+include('templates/header.php');
 $db;
 include('database/connection.php');
 include('database/users.php');
@@ -31,5 +31,5 @@ $reviews = getRestaurantReviews($restaurant["id"]);
     </div>
 
 <?
-include('resources/templates/footer.php');
+include('templates/footer.php');
 ?>

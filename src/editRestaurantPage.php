@@ -1,3 +1,13 @@
+<?php
+$db;
+include_once ('controllers/validation.php');
+include_once('database/connection.php');
+include_once('database/restaurants.php');
+include('templates/header.php');
+$restaurant = getRestaurantByName($_SESSION["name"]);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,19 +15,8 @@
     <meta charset='UTF-8'>
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
-
-    <?php
-    $db;
-    include_once ('controllers/validation.php');
-    include_once('database/connection.php');
-    include_once('database/restaurants.php');
-    $restaurant = getRestaurantByName($_SESSION["name"]);
-    ?>
 </head>
 <body>
-<header>
-    <?php include 'templates/header.php' ?>
-</header>
 <div id="content">
     <h2>Edit Restaurant's Account</h2>
     <div class="restaurant">
@@ -53,3 +52,6 @@
 </div>
 </body>
 </html>
+<?php
+    include('templates/footer.php');
+?>

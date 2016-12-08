@@ -1,3 +1,7 @@
+<?php
+    include('templates/header.php');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,26 +11,23 @@
         <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
     </head>
     <body>
-    <header>
-        <?php include 'templates/header.php' ?>
-    </header>
     <section id="content">
           <h2>Register</h2>
-          <form action="/controllers/action_register.php" method="post">
+          <form action="../controllers/action_register.php" method="post">
               <label>
                   Name: <input type="text" name="name" required>
               </label>
               <br>
               <label>
-              Email: <input type="email" name="email" required>
+                 Email: <input type="email" name="email" required>
               </label>
               <br>
               <label>
-              Password: <input type="password" name="password" required>
+                 Password: <input type="password" name="password" required>
               </label>
               <br>
               <label>
-              Repeat Password: <input type="password" name="password2" required>
+                 Repeat Password: <input type="password" name="password2" required>
               </label>
               <br>
               <input type="submit" value="Login">
@@ -34,3 +35,8 @@
     </section>
  </body>
 </html>
+
+
+<?php
+include('templates/footer.php');
+?>

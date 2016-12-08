@@ -1,5 +1,6 @@
 <?php
 include_once ('/controllers/validation.php');
+include('templates/header.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,32 +12,29 @@ include_once ('/controllers/validation.php');
     <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
 </head>
 <body>
-<header>
-    <?php
-    include('templates/header.php');
-    ?>
-</header>
 <div id="content">
 	<div class="review">
 		<?//TODO?>
 		<form action="" method="post">
-			<label>Title:
-				<input type="text" name="title" required>
-			</label><br>
-			<label>Rating:
-				<input type="number" name="rating" required>/10
-			</label><br>
-			<label>Body:
-				<textarea rows="10" cols="80" name="body" required>
-                </textarea>
-			</label><br>
+			<label>
+                Title:<input type="text" name="title" required>
+			</label>
+            <br>
+			<label>
+                Rating:<input type="number" name="rating" required>/10
+			</label>
+            <br>
+			<label>
+                Body:<textarea rows="10" cols="80" name="body" required></textarea>
+			</label>
+            <br>
 			<input type="submit" value="Save">
 		</form>
 	</div>
 </div>
-
-<?
-include('templates/footer.php');
-?>
 </body>
 </html>
+
+<?php
+include('templates/footer.php');
+?>
