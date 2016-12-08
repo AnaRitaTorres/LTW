@@ -3,19 +3,11 @@ $db;
 include_once ('controllers/validation.php');
 include_once('database/connection.php');
 include_once('database/users.php');
-include('resources/templates/header.php');
 $user = getUserByName($_SESSION["username"]);
+
+include('resources/templates/header.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>RestaurantFinder - User</title>
-	<meta charset='UTF-8'>
-	<link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href=" https://fonts.googleapis.com/css?family=Rock+Salt">
-</head>
-<body>
 <div id="content">
     <h2>Edit User's Account</h2>
 	<div class="user">
@@ -55,8 +47,6 @@ $user = getUserByName($_SESSION["username"]);
 		</form>
 	</div>
 </div>
-</body>
-</html>
 
 <?php
 include('resources/templates/footer.php');

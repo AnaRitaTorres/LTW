@@ -1,6 +1,9 @@
 // Setup the events only when document finished loading
 window.addEventListener("load", function(){
-    setUp();
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    if(page == "restaurantsPage.php")
+        setUp();
 }, true);
 
 // Setup the events
