@@ -23,15 +23,14 @@ $user_restaurants = getUserRestaurants($user["id"]);
         <input type="button" onclick="location.href='/createRestaurantPage.php';" value="New Restaurant" />
     </div>
 
-<h3>All Restaurants</h3>
-<!--Alterar isto para que o utilizar possa colocar um critério de pesquisa nos restaurantes a mostrar-->
-    <div class="all_restaurants">
-        <ul>
-            <?php foreach ($restaurants as $row): ?>
-                <li>
-                    <a href="<?= '/restaurant.php?id=' . $row['id'] ?>"><?php echo $row["name"]; ?></a>
-                </li>
-            <?php endforeach; ?>
+    <h3>Restaurants</h3>
+    <div class="search_restaurants">
+        <form action="#" method="get">
+            <label>Search:
+                <input id="restaurant_name" name="restaurant" type="text">
+            </label>
+        </form>
+        <ul id="suggestions">
         </ul>
     </div>
 

@@ -52,12 +52,6 @@ function deleteUserByName($username){
     $stmt->execute(array($username));
 }
 
-function deleteUserByEmail($email){
-    global $db;
-    $stmt = $db->prepare('DELETE * FROM users where email = ?');
-    $stmt->execute(array($email));
-}
-
 function updateUser($id , $password, $firstName, $lastName, $age, $address){
   global $db;
   $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?,address = ?, age = ? where id=?');

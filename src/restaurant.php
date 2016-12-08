@@ -30,6 +30,23 @@ $reviews = getRestaurantReviews($restaurant["id"]);
         </ul>
     </div>
 
+    <div class="review">
+        <form action="/controllers/action_addReview.php" method="post">
+            <input type="hidden" name="restaurant_id" value="<?php echo $restaurant["id"];?>">
+            <label>Title:
+                <input type="text" name="title" required>
+            </label>
+            <label>Rating:
+                <input type="number" name="rating" required>/10
+            </label>
+            <label>Body:
+                <textarea rows="10" cols="100" name="body" required>
+                </textarea>
+            </label>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
 <?
 include('resources/templates/footer.php');
 ?>
