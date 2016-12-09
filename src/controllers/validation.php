@@ -6,4 +6,3 @@ if (!$_SESSION['authenticated']) {
     header("Location: resources/templates/login_form.php");
     exit;
 }
-?>

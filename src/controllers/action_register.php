@@ -18,11 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $passwordRepeat = $_POST["password2"];
         $email = $_POST["email"];
 
-        if(strcmp($password, $passwordRepeat) != 0) {
-            header('Location: /registrationPage.php');
-            exit;
-        }
-
         if (!userExists($username, $password)) {
             newUser($username, $password, $email);
             session_start();

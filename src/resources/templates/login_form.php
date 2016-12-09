@@ -1,16 +1,27 @@
-<div id="content">
-	<div class="user">
-		<form action="/controllers/login.php" method="post">
-			<label>Username:
-				<input type="text" name="name" id="name" required>
-			</label>
-			<br>
-			<label>Password:
-				<input type="password" name="password" id="password" required>
-			</label>
-			<br>
-			<input type="submit" name="login" value="Login" id="login">
-		</form>
-	</div>
-	<p>Not Registered Yet? <a href='../../registrationPage.php'>Register Here</a></p>
+<!-- Button to open the modal login form -->
+<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+		class="close" title="Close Modal">&times;</span>
+
+	<!-- Modal Content -->
+	<form class="modal-content animate" action="/controllers/login.php" method="post">
+		<div class="container">
+			<label><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" name="name" id="name" required>
+
+			<label><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+			<button type="submit">Login</button>
+			<input type="checkbox" checked="checked"> Remember me
+		</div>
+
+		<div class="container" style="background-color:#f1f1f1">
+			<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+			<span class="psw">Not Registered Yet? <a href="#">Click here</a></span>
+		</div>
+	</form>
 </div>

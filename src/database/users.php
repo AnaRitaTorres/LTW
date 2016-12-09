@@ -29,7 +29,7 @@ function userExists($username, $password){
     $stmt = $db->prepare('SELECT * FROM users where username = ? AND password = ?');
     $stmt->execute(array($username, $password));
     $result = $stmt->fetch();
-    return $result;
+    return ($result !== false && password_verify($password, $result['password']));
 }
 
 function newUser($name, $password, $email){

@@ -9,7 +9,7 @@ session_start();
 session_destroy();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST["name"]; 
+    $username = trim(strip_tags($_POST["username"]));
     $password = $_POST["password"];
 
     if (userExists($username, $password)) {
@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Invalid username or password";
         $_SESSION['authenticated'] = false;
         $_SESSION['username'] = null;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
 }
