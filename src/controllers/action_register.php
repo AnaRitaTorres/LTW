@@ -12,27 +12,21 @@ session_start();
 session_destroy();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST["name"]) && !empty($_POST["password"])) {
-        $username = $_POST["name"];
-        $password = $_POST["password"];
-        $passwordRepeat = $_POST["password2"];
-        $email = $_POST["email"];
+    $firstName = $_POST["firstName"];
+    $lastName= $_POST["lastName"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $email = $_POST["email"];
 
-        if (!userExists($username, $password)) {
-            newUser($username, $password, $email);
-            session_start();
-            $_SESSION["authenticated"] = 'true';
-            $_SESSION["username"] = $username;
-            header('Location: /mainPage.php');
-        } else {
-            $_SESSION['flash_error'] = "Invalid Username or Password";
-            $_SESSION['authenticated'] = false;
-            $_SESSION['username'] = null;
-            header('Location: /registrationPage.php');
-        }
-    }else {
-        header('Location: /registrationPage.php');
+    if (!userExists($username, $password)) {
+        newUser($username, $password, $email);
+        session_start();
+        $_SESSION["authenticated"] = 'true';
+        $_SESSION["username"] = $username;
+        header('Location: /mainPage.php');
+    } else {
+        $_SESSION['flash_error'] = "Invalid Username or Password";
+        $_SESSION['authenticated'] = false;
+        $_SESSION['username'] = null;
     }
 }
-
-?>

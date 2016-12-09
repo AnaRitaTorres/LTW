@@ -7,10 +7,10 @@
 		class="close" title="Close Modal">&times;</span>
 
 	<!-- Modal Content -->
-	<form class="modal-content animate" action="/controllers/login.php" method="post">
+	<form class="modal-content animate" action="/controllers/login.php" method="post" id="loginForm">
 		<div class="container">
 			<label><b>Username</b></label>
-			<input type="text" placeholder="Enter Username" name="name" id="name" required>
+			<input type="text" placeholder="Enter Username" name="username" id="username" required>
 
 			<label><b>Password</b></label>
 			<input type="password" placeholder="Enter Password" name="password" id="password" required>

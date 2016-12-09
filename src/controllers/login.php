@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Invalid username or password";
         $_SESSION['authenticated'] = false;
         $_SESSION['username'] = null;
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
 }

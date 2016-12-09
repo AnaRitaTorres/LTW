@@ -17,9 +17,10 @@
 
         <?php
         session_start();
-        if (!$_SESSION['authenticated']) {
+        if (!$_SESSION['authenticated']) :{
             include('resources/templates/login_form.php');
             include('resources/templates/register_form.php');
-        }
-        ?>
+        } else:?>
+            <input type="button" onclick="location.href='/controllers/logout.php'" value="Logout" />
+        <?php endif; ?>
 

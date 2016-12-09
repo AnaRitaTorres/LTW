@@ -7,28 +7,28 @@
         class="close" title="Close Modal">&times;</span>
 
     <!-- Modal Content -->
-    <form class="modal-content animate" action="/controllers/action_register.php" method="post">
+    <form class="modal-content animate" action="/controllers/action_register.php" method="post" id="registerForm">
         <div class="container">
             <label>
-                First Name: <input type="text" name="firstName" id="register_firstname" required>
+                First Name: <input type="text" name="firstName" id="firstName">
             </label>
             <label>
-                Last Name: <input type="text" name="lastName" id="register_lastname" required>
+                Last Name: <input type="text" name="lastName" id="lastName">
             </label>
             <label>
-                Username: <input type="text" name="username" id="register_username" required>
-            </label>
-            <br>
-            <label>
-                Email: <input type="email" name="email" id="register_email" required>
+                Username: <input type="text" name="username" id="username">
             </label>
             <br>
             <label>
-                Password: <input type="password" name="password"  id="register_password" required>
+                Email: <input type="email" name="email" id="email">
             </label>
             <br>
             <label>
-                Confirm Password: <input type="password" name="password2" id="register_cpassword" required>
+                Password: <input type="password" name="password"  id="password">
+            </label>
+            <br>
+            <label>
+                Confirm Password: <input type="password" name="cpassword" id="cpassword">
             </label>
             <br>
 
