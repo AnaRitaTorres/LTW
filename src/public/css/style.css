@@ -4,10 +4,8 @@ html{
 }
 
 body{
-    padding:50px 150px 50px 150px;
-    margin:0px;
-    position:relative;
-    text-align: center;
+    padding: 250px;
+    padding-top: 100px;
 }
 
 h1{
@@ -16,37 +14,9 @@ h1{
     color: #000000;
 }
 
-header{
-    background-color: darkred;
-    top:0px;
-    padding:80px;
-}
-
 #content{
+    padding:80px;
     background-color: white;
     opacity: 0.75;
-    display:block;
-    padding:80px;
-    text-align: center;
-}
-
-#logs{
-    background-color: darkred;
-    text-align: right;
-}
-
-.main{
-    background-color: white;
-    opacity: 0.75;
-    display:block;
-    padding:80px;
-    text-align: center;
-}
-
-.createRestaurant{
-    background-color: white;
-    opacity: 0.75;
-    display:block;
-    padding:80px;
-    text-align: left;
+    display:flex;
 }
