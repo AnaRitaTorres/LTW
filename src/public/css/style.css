@@ -1,27 +1,34 @@
-html{
+body{
+    padding: 250px;
+    padding-top: 100px;
     background-image: url(../img/background.jpg);
     background-size: cover;
 }
 
-body{
-    padding: 250px;
-    padding-top: 100px;
+
+#wrapper{
+    background-color: white;
+    opacity: 0.85;
+    padding:70px;
+    font-family: 'Work Sans', sans-serif;
 }
 
+header{
+    background-color: darkred;
+    text-align: center;
+    padding:50px;
+    padding-bottom: 40px;
+}
 h1{
     font-family: 'Rock Salt', cursive;
     font-size: 45px;
-    color: #000000;
-}
-
-#content{
-    background-color: white;
-    opacity: 0.75;
+    color: black;
 }
 
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
 }
 
 /* Full-width inputs */
@@ -32,6 +39,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+
 }
 
 /* Set a style for all buttons */
@@ -39,17 +47,43 @@ button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin-top:0px;
     border: none;
     cursor: pointer;
     width: 100%;
+    font-family: 'Work Sans', sans-serif;
+}
+
+/* Extra style for the login button */
+.loginbtn{
+    background-color: darkred;
+    width:50%;
+    float:left;
+}
+
+/*Effect if mouse is on top of the login button */
+.loginbtn:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Extra style for the register button */
+.registerbtn{
+    background-color: darkred;
+    width:50%;
+}
+
+/*Effect if mouse is on top of the register button */
+.registerbtn:hover{
+    background-color: #4CAF50;
+    color: white;
 }
 
 /* Extra style for the cancel button (red) */
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: darkred;
 }
 
 /* Add padding to containers */
@@ -111,7 +145,7 @@ span.psw {
 /* Close button on hover */
 .close:hover,
 .close:focus {
-    color: red;
+    color: darkred;
     cursor: pointer;
 }
 
@@ -157,3 +191,4 @@ article.single{
 article.single img{
     margin: 0 auto;
 }
+

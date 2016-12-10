@@ -1,5 +1,5 @@
 <!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id02').style.display='block'">Register</button>
+<button onclick="document.getElementById('id02').style.display='block'" class="registerbtn">Register</button>
 
 <!-- The Modal -->
 <div id="id02" class="modal">

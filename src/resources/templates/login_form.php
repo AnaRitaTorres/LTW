@@ -1,5 +1,5 @@
 <!-- Button to open the modal login form -->
-<button onclick="document.getElementById('id01').style.display='block'">Login</button>
+<button onclick="document.getElementById('id01').style.display='block'" class="loginbtn">Login</button>
 
 <!-- The Modal -->
 <div id="id01" class="modal">
@@ -16,12 +16,12 @@
 			<input type="password" placeholder="Enter Password" name="password" id="password" required>
 
 			<button type="submit">Login</button>
-			<input type="checkbox" checked="checked"> Remember me
+			<input type="checkbox" checked="checked"> Remember Me
 		</div>
 
 		<div class="container" style="background-color:#f1f1f1">
 			<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-			<span class="psw">Not Registered Yet? <a href="#">Click here</a></span>
+			<span class="psw">Not Registered Yet? <a href="#">Click Here</a></span>
 		</div>
 	</form>
 </div>
