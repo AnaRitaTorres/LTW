@@ -1,8 +1,5 @@
 <?php
 
-$username = null;
-$password = null;
-
 $db;
 include_once($_SERVER['DOCUMENT_ROOT'] . '/database/connection.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/database/users.php');
@@ -14,12 +11,12 @@ session_destroy();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = $_POST["firstName"];
     $lastName= $_POST["lastName"];
-    $username = $_POST["username"];
+    $username = trim(strip_tags($_POST["username"]));
     $password = $_POST["password"];
     $email = $_POST["email"];
 
     if (!userExists($username, $password)) {
-        newUser($username, $password, $email);
+        newUser($username, $password, $email, $firstName, $lastName);
         session_start();
         $_SESSION["authenticated"] = 'true';
         $_SESSION["username"] = $username;

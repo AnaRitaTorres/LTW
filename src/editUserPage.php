@@ -32,18 +32,18 @@ include('resources/templates/header.php');
             </label>
             <br>
             <label>
-                New Password: <input type="password" name="password">
+                New Password: <input type="password" name="password" minlength="8">
             </label>
             <br>
             <label>
-                Repeat new password: <input type="password" name="password2">
+                Repeat new password: <input type="password" name="password2" minlength="8">
             </label>
             <br>
             <label>
-                Old Password: <input type="password" name="old_password" required>
+                Current Password: <input type="password" name="old_password" required>
             </label>
             <br>
-			<input type="submit" value="Save">
+            <button type="submit">Save</button>
 		</form>
 	</div>
 </div>

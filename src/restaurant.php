@@ -4,10 +4,13 @@ include('controllers/validation.php');
 include('database/connection.php');
 include('database/users.php');
 include('database/restaurants.php');
+include('database/images.php');
+
 $user = getUserByName($_SESSION['username']);
 $restaurant = getRestaurantByID($_GET["id"]);
 $isOwner = isOwner($user["id"], $restaurant["id"]);
 $reviews = getRestaurantReviews($restaurant["id"]);
+$images = getRestaurantImages($restaurant["id"]);
 
 include('resources/templates/header.php');
 ?>
@@ -21,9 +24,17 @@ include('resources/templates/header.php');
         <?php echo $restaurant["description"]; ?>
     </div>
 
-    <h4>Reviews</h4>
+    <section id="images">
+        <?php foreach ($images as $image) { ?>
+            <article class="image">
+                <header><h2><?=$image['title']?></h2></header>
+                <img src="public/img/thumbs_small/<?=$image['id']?>.jpg" width="200" height="200">
+            </article>
+        <?php } ?>
+    </section>
 
-    <div style="padding:20px;">
+    <div id="reviews">
+        <h4>Reviews</h4>
         <ul>
             <?php foreach ($reviews as $row): ?>
                 <p><?php echo $row["body"]; ?></p>
@@ -31,14 +42,15 @@ include('resources/templates/header.php');
         </ul>
     </div>
 
-    <div class="review">
+    <?php if(!$isOwner):?>
+    <div id="content">
         <form action="/controllers/action_addReview.php" method="post">
             <input type="hidden" name="restaurant_id" value="<?php echo $restaurant["id"];?>">
             <label>Title:
                 <input type="text" name="title" required>
             </label><br>
             <label>Rating:
-                <input type="number" name="rating" required>/10
+                <input type="number" name="rating" required min="0" max="10">/10
             </label><br>
             <label>Body:
                 <textarea rows="10" cols="100" name="body" required>
@@ -47,6 +59,9 @@ include('resources/templates/header.php');
             <input type="submit" value="Save">
         </form>
     </div>
+    <?php endif;?>
+
+    <input type="button" onclick="location.href='/restaurantsPage.php'" value="Back" />
 
 <?
 include('resources/templates/footer.php');

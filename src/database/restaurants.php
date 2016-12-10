@@ -70,8 +70,8 @@ function deleteRestaurantByName($name){
 
 function newRestaurant($name, $description, $category){
     global $db;
-    $stmt = $db->prepare('INSERT INTO restaurants (name, description, category) values(?, ?, ?)');
-    $stmt->execute(array($name, $description, $category));
+    $stmt = $db->prepare('INSERT INTO restaurants (name, description, category, location_id) values(?, ?, ?, ?)');
+    $stmt->execute(array($name, $description, $category, 1));
 }
 
 function new_restaurant_user($user_id, $restaurant_id){

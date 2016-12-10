@@ -12,10 +12,11 @@ if($_POST["description"] == null)
 else $description = $_POST["description"];
 
 if($_POST["link"] == null)
-  $description = $restaurant["link"];
-else $description = $_POST["link"];
+  $link = $restaurant["link"];
+else $link = $_POST["link"];
 
-updateRestaurant($id,$description,$link);
+updateRestaurant($id, $description, $link);
 
-header('Location: ../mainPage.php');
-?>
+$path = '../restaurant.php?id=' . $id;
+
+header("Location: " . $path);
