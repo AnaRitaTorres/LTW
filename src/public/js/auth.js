@@ -38,15 +38,16 @@ $(document).ready(function(){
 
         function submitLogin()
         {
-            var username = $("#username");
-            var password = $("#password");
+            var username = $("#username").val();
+            var password = $("#password").val();
             $.ajax({
                 type : 'POST',
                 url  : '/controllers/login.php',
                 data : {
-                    username: username,
-                    password: password
+                    "username": username,
+                    "password": password
                 },
+                datatype: "text",
                 success: function(data){
                     window.location = "mainPage.php";
                 }
@@ -57,31 +58,7 @@ $(document).ready(function(){
     $("#registerForm").validate({
         rules:
         {
-            firstName: {
-                required: true,
-                maxlength: 32,
-            },
-            lastName: {
-                required: true,
-                maxlength: 32,
-            },
-            username: {
-                required: true,
-                maxlength: 32,
-            },
-            password: {
-                required: true,
-                minlength: 8,
-            },
-            cpassword: {
-                minlength: 8,
-                equalTo: "#password",
 
-            },
-            email: {
-                email: true,
-                required: true,
-            }
         },
         messages:
         {
@@ -98,21 +75,22 @@ $(document).ready(function(){
 
     function submitRegistration()
     {
-        var firstName = $("#firstName");
-        var lastName = $("#lastName");
-        var username = $("#username");
-        var email = $("#email");
-        var password = $("#password");
+        var firstName = $("#firstName").val();
+        var lastName = $("#lastName").val();
+        var username = $("#username").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
         $.ajax({
             type : 'POST',
             url  : '/controllers/action_register.php',
             data : {
-                firstName: firstName,
-                lastName: lastName,
-                username: username,
-                email: email,
-                password: password
+                "firstName": firstName,
+                "lastName": lastName,
+                "username": username,
+                "email": email,
+                "password": password
             },
+            datatype: "text",
             success: function(data){
                 window.location = "mainPage.php";
             }
