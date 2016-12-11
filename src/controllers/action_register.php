@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         session_start();
         $_SESSION["authenticated"] = 'true';
         $_SESSION["username"] = $username;
-        header('Location: /mainPage.php');
     } else {
         $_SESSION['flash_error'] = "Invalid Username or Password";
         $_SESSION['authenticated'] = false;

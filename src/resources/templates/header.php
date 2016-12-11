@@ -16,7 +16,7 @@
         <header>
             <h1>Restaurant Reviewer</h1>
         </header>
-        <?php 
+        <?php
         if(!isset($_SESSION))
         {
             session_start();
