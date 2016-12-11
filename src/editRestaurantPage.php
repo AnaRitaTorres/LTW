@@ -1,5 +1,6 @@
 <?php
 $db;
+include('resources/templates/header.php');
 include_once ('controllers/validation.php');
 include_once('database/connection.php');
 include_once('database/restaurants.php');
@@ -11,8 +12,6 @@ $isOwner = isOwner($user["id"], $restaurant["id"]);
 
 if(!$isOwner)
     header('Location: ' . $_SERVER['HTTP_REFERER']);
-
-include('resources/templates/header.php');
 ?>
 
     <div id="content">

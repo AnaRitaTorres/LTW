@@ -74,7 +74,6 @@ $(document).ready(function(){
                 minlength: 8,
             },
             cpassword: {
-                required: true,
                 minlength: 8,
                 equalTo: "#password",
 

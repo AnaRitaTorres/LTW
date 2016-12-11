@@ -8,7 +8,9 @@
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
         <script src="../../public/js/search.js"></script>
+        <script src="../../public/js/map.js"></script>
         <script type="text/javascript" src="../../public/js/auth.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=initMap&libraries=places"></script>
     </head>
     <body>
         <header>
@@ -16,11 +18,15 @@
         </header>
 
         <?php
-        session_start();
-        if (!$_SESSION['authenticated']) :{
+        if(!isset($_SESSION))
+        {
+            session_start();
+        }
+        if (!isset($_SESSION['authenticated'])) :{
             include('resources/templates/login_form.php');
             include('resources/templates/register_form.php');
-        } else:?>
-            <input type="button" onclick="location.href='/controllers/logout.php'" value="Logout" />
+        }
+        else:?>
+        <input type="button" onclick="location.href='/controllers/logout.php'" value="Logout" />
         <?php endif; ?>
 

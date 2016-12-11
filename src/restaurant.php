@@ -1,6 +1,7 @@
 <?php
 $db;
 include('controllers/validation.php');
+include('resources/templates/header.php');
 include('database/connection.php');
 include('database/users.php');
 include('database/restaurants.php');
@@ -11,8 +12,6 @@ $restaurant = getRestaurantByID($_GET["id"]);
 $isOwner = isOwner($user["id"], $restaurant["id"]);
 $reviews = getRestaurantReviews($restaurant["id"]);
 $images = getRestaurantImages($restaurant["id"]);
-
-include('resources/templates/header.php');
 ?>
     <div style="padding:20px;">
 

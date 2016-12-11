@@ -1,5 +1,6 @@
 <?php
 $db;
+include('resources/templates/header.php');
 include('controllers/validation.php');
 include('database/connection.php');
 include('database/users.php');
@@ -7,8 +8,6 @@ include('database/restaurants.php');
 $user = getUserByName($_SESSION['username']);
 $restaurants = getAllRestaurants();
 $user_restaurants = getUserRestaurants($user["id"]);
-
-include('resources/templates/header.php');
 ?>
 
     <div class="content">
