@@ -3,7 +3,8 @@
     <head>
         <title>Restaurant Reviewer</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rock+Salt">
-        <link rel="stylesheet" href="../../public/css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans">
+        <link rel="stylesheet" href="public/css/style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
@@ -16,7 +17,6 @@
         <header>
             <h1>Restaurant Reviewer</h1>
         </header>
-
         <?php
         if(!isset($_SESSION))
         {
@@ -29,4 +29,5 @@
         else:?>
         <input type="button" onclick="location.href='/controllers/logout.php'" value="Logout" />
         <?php endif; ?>
+        <div id="wrapper">
 

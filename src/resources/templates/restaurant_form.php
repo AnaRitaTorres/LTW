@@ -18,7 +18,7 @@
         </label>
         <br>
         <label>Description:
-            <textarea rows="10" cols="100" name="description" required></textarea>
+            <textarea rows="10" cols="77" name="description" required></textarea>
         </label>
         <br>
         <input type="submit" value="Save">
