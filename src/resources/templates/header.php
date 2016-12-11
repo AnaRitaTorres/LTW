@@ -11,7 +11,6 @@
         <script src="../../public/js/search.js"></script>
         <script src="../../public/js/map.js"></script>
         <script type="text/javascript" src="../../public/js/auth.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=initMap&libraries=places"></script>
     </head>
     <body>
         <header>
