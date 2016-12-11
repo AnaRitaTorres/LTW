@@ -75,7 +75,7 @@ $(document).ready(function(){
             },
             cpassword: {
                 minlength: 8,
-                equalTo: "#password",
+                equalTo: $("#registerForm").find("#password"),
 
             },
             email: {
