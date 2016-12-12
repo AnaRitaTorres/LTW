@@ -3,14 +3,18 @@ body{
     padding-top: 100px;
     background-image: url(../img/background.jpg);
     background-size: cover;
+    overflow:auto;
 }
 
 
 #wrapper{
     background-color: white;
     opacity: 0.85;
-    padding:70px;
-    font-family: 'Work Sans', sans-serif;
+    padding-bottom:50%;
+    padding-top:10%;
+    font-family: 'Arbutus Slab', serif;
+    overflow: auto;
+    text-align: center;
 }
 
 header{
@@ -18,13 +22,24 @@ header{
     text-align: center;
     padding:50px;
     padding-bottom: 40px;
+    overflow: auto;
 }
+
+footer{
+    background-color: darkred;
+    padding: 25px;
+    overflow: auto;
+}
+
 h1{
     font-family: 'Rock Salt', cursive;
-    font-size: 45px;
+    font-size: 300%;
     color: black;
 }
 
+.main #user{
+    font-size: 150%;
+}
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
@@ -51,14 +66,40 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
-    font-family: 'Work Sans', sans-serif;
+    font-family: 'Arbutus Slab', serif;
+}
+
+/* Extra style for the home button */
+.homebtn1{
+    background-color: darkred;
+    width:33.33333%;
+    float:left;
+}
+
+/*Effect if mouse is on top of the home button */
+.homebtn1:hover{
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Extra style for the home button */
+.homebtn2{
+    background-color: darkred;
+    width:50%;
+    float:left;
+}
+
+/*Effect if mouse is on top of the home button */
+.homebtn2:hover{
+    background-color: #4CAF50;
+    color: white;
 }
 
 /* Extra style for the login button */
 .loginbtn{
     background-color: darkred;
-    width:50%;
-    float:left;
+    width:33.33333%;
+
 }
 
 /*Effect if mouse is on top of the login button */
@@ -67,10 +108,22 @@ button {
     color: white;
 }
 
+/* Extra style for the logout button */
+.logoutbtn{
+    background-color: darkred;
+    width:50%;
+}
+
+/*Effect if mouse is on top of the logout button */
+.logoutbtn:hover{
+    background-color: #4CAF50;
+    color: white;
+}
 /* Extra style for the register button */
 .registerbtn{
     background-color: darkred;
-    width:50%;
+    width:33.33333%;
+    float:right;
 }
 
 /*Effect if mouse is on top of the register button */
@@ -89,6 +142,7 @@ button {
 /* Add padding to containers */
 .container {
     padding: 16px;
+    font-family: 'Arimo', sans-serif;
 }
 
 /* The "Forgot password" text */

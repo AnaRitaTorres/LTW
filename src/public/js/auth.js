@@ -27,10 +27,10 @@ $(document).ready(function(){
             messages:
             {
                 password:{
-                    required: "Please enter your password",
-                    minlength: "The password minimum length is 8"
+                    required: "Please Enter Your Password.",
+                    minlength: "The Password Minimum Length is 8."
                 },
-                username: "Please enter your username",
+                username: "Please Enter Your Username.",
             },
             submitHandler: submitLogin
         });
@@ -86,12 +86,12 @@ $(document).ready(function(){
         messages:
         {
             password:{
-                required: "Please enter your password",
+                required: "Please Enter Your Password.",
             },
-            username: "Please enter a valid username",
-            email: "Please enter a valid email",
-            lastName: "Please enter a valid last name",
-            firstName: "Please enter a valid first name",
+            username: "Please Enter a Valid Username.",
+            email: "Please Enter a Valid Email.",
+            lastName: "Please Enter a Valid Last Name.",
+            firstName: "Please Enter a Valid First Name.",
         },
         submitHandler: submitRegistration
     });

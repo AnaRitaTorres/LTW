@@ -12,20 +12,27 @@
             <label>
                 First Name: <input type="text" name="firstName" id="firstName">
             </label>
+            <br>
+            <br>
             <label>
                 Last Name: <input type="text" name="lastName" id="lastName">
             </label>
+            <br>
+            <br>
             <label>
                 Username: <input type="text" name="username" id="username">
             </label>
+            <br>
             <br>
             <label>
                 Email: <input type="email" name="email" id="email">
             </label>
             <br>
+            <br>
             <label>
                 Password: <input type="password" name="password"  id="password">
             </label>
+            <br>
             <br>
             <label>
                 Confirm Password: <input type="password" name="cpassword" id="cpassword">

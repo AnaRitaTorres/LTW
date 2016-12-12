@@ -9,14 +9,15 @@
 	<!-- Modal Content -->
 	<form class="modal-content animate" action="/controllers/login.php" method="post" id="loginForm">
 		<div class="container">
-			<label><b>Username</b></label>
+			<label>Username</label><br>
 			<input type="text" placeholder="Enter Username" name="username" id="username" required>
 
-			<label><b>Password</b></label>
+			<br><label>Password</label><br>
 			<input type="password" placeholder="Enter Password" name="password" id="password" required>
 
 			<button type="submit">Login</button>
-			<input type="checkbox" checked="checked"> Remember Me
+
+			<input type="checkbox" checked="checked">Remember Me
 		</div>
 
 		<div class="container" style="background-color:#f1f1f1">
