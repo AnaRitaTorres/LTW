@@ -20,8 +20,7 @@ $user_restaurants = getUserRestaurants($user["id"]);
                     </li>
                 <?php endforeach; ?>
             </ul>
-
-            <input type="button" onclick="location.href='/createRestaurantPage.php';" value="New Restaurant" />
+            <button onclick="location.href='/createRestaurantPage.php'" class="newRestbtn">New Restaurant</button>
         </div>
 
         <h3>Restaurants</h3>

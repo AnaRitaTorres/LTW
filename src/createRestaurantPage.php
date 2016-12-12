@@ -1,6 +1,10 @@
 <?php
     include('resources/templates/header.php');
     include_once ('controllers/validation.php');
+?>
+    <h3>Restaurant Information</h3>
+
+<?php
     include('resources/templates/restaurant_form.php');
 ?>
     <h3>Restaurant Location</h3>

@@ -19,7 +19,7 @@ if(!$isOwner)
         <div class="restaurant">
             <form action="/controllers/action_updateRestaurant.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $restaurant['id'];?>"/>
-                <label>
+                <label>Name:
                     Name: <input type="text" name="name" placeholder="<?php echo $restaurant['name'];?>"/>
                 </label>
                 <br>
@@ -43,7 +43,7 @@ if(!$isOwner)
                     Address: <input type="text" name="address" placeholder="<?php echo $restaurant['address'];?>"/>
                 </label>
                 <br>
-                <input type="submit" value="Save">
+                <button type="submit"class="savebtn">Save</button>
             </form>
         </div>
 
