@@ -17,10 +17,10 @@
             <input type="number" name="price">
         </label>
         <br>
-        <label>Description:
-            <textarea rows="10" cols="77" name="description" required></textarea>
+        <label>Description:<br>
+            <textarea rows="10" cols="90" name="description" required></textarea>
         </label>
         <br>
-        <input type="submit" value="Save">
+        <button type="submit"class="savebtn">Save</button>
     </form>
 </div>

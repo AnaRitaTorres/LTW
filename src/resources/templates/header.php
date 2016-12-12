@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rock+Salt">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display+SC">
         <link rel="stylesheet" href="public/css/style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>

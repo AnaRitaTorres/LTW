@@ -14,8 +14,7 @@ $user = getUserByName($_SESSION["username"]);
             <input type="hidden" name="id" value="<?php echo $user['id'];?>">
 			<input type="hidden" name="email" value="<?php echo $user['email'];?>">
 
-            <label>
-                First Name: <input type="text" name="first_name" placeholder="<?php echo $user['first_name'];?>">
+            <label>First Name: <input type="text" name="first_name" placeholder="<?php echo $user['first_name'];?>">
             </label>
             <br>
             <label>
@@ -42,7 +41,7 @@ $user = getUserByName($_SESSION["username"]);
                 Current Password: <input type="password" name="old_password" required>
             </label>
             <br>
-            <button type="submit">Save</button>
+            <button type="submit"class="savebtn">Save</button>
 		</form>
 	</div>
 </div>
