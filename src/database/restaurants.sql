@@ -19,17 +19,7 @@ CREATE TABLE restaurants (
 	price FLOAT,
 	category VARCHAR NOT NULL,
 	link VARCHAR,
-  location_id INTEGER REFERENCES location NOT NULL
-);
-
-DROP TABLE IF EXISTS location;
-CREATE TABLE location (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  latitude FLOAT NOT NULL,
-  longitude FLOAT NOT NULL,
-  address VARCHAR,
-  district VARCHAR,
-  zip VARCHAR
+  location_id FLOAT NOT NULL
 );
 
 DROP TABLE IF EXISTS restaurant_user;

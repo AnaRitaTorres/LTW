@@ -1,7 +1,7 @@
 <?php
 $db;
-include('controllers/validation.php');
 include('resources/templates/header.php');
+include('controllers/validation.php');
 include('database/connection.php');
 include('database/users.php');
 include('database/restaurants.php');
@@ -31,6 +31,12 @@ $images = getRestaurantImages($restaurant["id"]);
             </article>
         <?php } ?>
     </section>
+
+    <h3>Restaurant Location</h3>
+    <div id="location"></div>
+    <input type="hidden" name="restaurantId" id="restaurantId" value="<?php echo $restaurant["id"];?>">
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=showMap&libraries=places"></script>
 
     <div id="reviews">
         <h4>Reviews</h4>
