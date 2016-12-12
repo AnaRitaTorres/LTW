@@ -297,3 +297,48 @@ article.single img{
     width:100%;
     height:500px
 }
+
+ol.commentList{
+    margin: 10px 5px;
+    padding: 10px;
+}
+.commentList .comment-body{
+    padding: 10px;
+    background: #EFEFEF;
+    border: solid thin #DEDEDE;
+    margin: 10px 0;
+    position: relative;
+}
+.comment-body a.comment-reply-link{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #AEAEAE;
+}
+ol.commentList li{
+    list-style: none;
+}
+
+ol.commentList .comment-author{
+    float: left
+}
+.comment-body cite.fn{
+    font-size: 14px;
+    font-style: normal;
+}
+.commentData a{
+    margin: 0;
+    font-size: 11px;
+    color: #999;
+}
+.comment-body p{
+    margin: 5px;
+}
+
+#reviewContent input[type=text]{
+    width: 25%;
+}
+
+#reviewContent #body{
+    width: 50%;
+}
