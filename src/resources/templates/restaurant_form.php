@@ -1,11 +1,11 @@
 <div class="createRestaurant">
-    <form action="/controllers/action_createRestaurant.php" method="post">
+    <form action="/controllers/action_createRestaurant.php" id="restaurantForm" method="post">
         <label>Name:
-            <input type="text" name="name" required>
+            <input type="text" name="name" required id="name">
         </label>
         <br>
         <label>Category:
-            <select name="category">
+            <select name="category" id="category">
                 <option value="seafood">Seafood</option>
                 <option value="italian">Italian</option>
                 <option value="asian">Asian</option>
@@ -14,11 +14,11 @@
         </label>
         <br>
         <label>Price:
-            <input type="number" name="price">
+            <input type="number" name="price" id="price">
         </label>
         <br>
         <label>Description:<br>
-            <textarea rows="10" cols="90" name="description" required></textarea>
+            <textarea rows="10" cols="90" name="description" id="description" required></textarea>
         </label>
         <br>
         <button type="submit"class="savebtn">Save</button>

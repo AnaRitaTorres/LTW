@@ -133,13 +133,14 @@ $(document).ready(function(){
             request.abort();
         }
 
-        if(markers.length == 0){
+        if(markers.length == 0 && locationID == null) {
             return false;
         }
 
         var name = $("#restaurantForm").find("#name").val();
         var description = $("#restaurantForm").find("#description").val();
         var category = $("#restaurantForm").find("#category").val();
+        console.log(name)
 
         request = $.ajax({
             type : 'POST',

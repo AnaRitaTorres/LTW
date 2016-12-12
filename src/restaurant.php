@@ -6,12 +6,14 @@ include('database/connection.php');
 include('database/users.php');
 include('database/restaurants.php');
 include('database/images.php');
+include('database/reviews.php');
 
 $user = getUserByName($_SESSION['username']);
 $restaurant = getRestaurantByID($_GET["id"]);
 $isOwner = isOwner($user["id"], $restaurant["id"]);
 $reviews = getRestaurantReviews($restaurant["id"]);
 $images = getRestaurantImages($restaurant["id"]);
+$nReviews = getNrReviews($user["id"], $restaurant["id"]);
 ?>
     <div style="padding:20px;">
 
@@ -59,11 +61,11 @@ $images = getRestaurantImages($restaurant["id"]);
         </li>
     </ol>
 
-<?php if(!$isOwner):?>
+<?php if(!$isOwner && $nReviews == 0):?>
     <button id="newReview">Review Restaurant</button><br><br>
     <div id="reviewContent">
         <form action="/controllers/action_addReview.php" method="post" id="reviewForm">
-            <input type="hidden" name="restaurant_id" value="<?php echo $restaurant["id"];?>">
+            <input type="hidden" name="restaurant_id" id="restaurant_id" value="<?php echo $restaurant["id"];?>">
             <label>Title:
                 <input type="text" name="title" id="title" required maxlength="50">
             </label><br>
@@ -71,7 +73,7 @@ $images = getRestaurantImages($restaurant["id"]);
                 <textarea id="body" rows="5" cols="100" name="body" maxlength="255" id="body" required></textarea>
             </label><br>
             <label>Rating:
-                <input type="number" name="rating" id="rating" required min="0" max="10">/10
+                <input type="number" name="rating" id="rating" required min="1" max="10">/10
             </label><br>
             <input type="submit" value="Save">
         </form>
