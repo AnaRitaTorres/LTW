@@ -89,6 +89,6 @@ function updateRestaurant($id,$description, $link){
 function searchRestaurant($name){
     global $db;
     $stmt = $db->prepare("SELECT * FROM restaurants WHERE upper(name) LIKE upper(?) LIMIT 10");
-    $stmt->execute(array("$name%"));
+    $stmt->execute(array("%$name%"));
     return $stmt->fetchAll();
 }

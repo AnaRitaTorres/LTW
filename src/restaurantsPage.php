@@ -26,7 +26,7 @@ $user_restaurants = getUserRestaurants($user["id"]);
         <h3>Restaurants</h3>
         <div class="search_restaurants">
             <form action="#" method="get">
-                <input id="restaurant_name" name="restaurant" type="text">
+                <input id="restaurant_name" name="restaurant" type="text" placeholder="Search..">
             </form>
             <ul id="suggestions">
             </ul>

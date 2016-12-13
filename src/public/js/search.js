@@ -8,9 +8,7 @@ window.addEventListener("load", function(){
 
 // Setup the events
 function setUp() {
-    var text = document.getElementById("restaurant_name");
-    console.log(text);
-    text.addEventListener("keyup", restaurantChanged, false);
+    $(document).on('keyup','#restaurant_name', restaurantChanged);
 }
 
 // Handler for change event on text input
@@ -26,13 +24,13 @@ function restaurantChanged(event) {
 // Handler for ajax response received
 function restaurantsReceived() {
     var restaurants = JSON.parse(this.responseText);
-    var list = document.getElementById("suggestions");
-    list.innerHTML = ""; // Clean current countries
+    var list = $("#suggestions");
+    list.text("");
 
     // Add new suggestions
     for (var rest in restaurants) {
         var item = document.createElement("li");
-        list.appendChild(item);
+        list.append(item);
         var link = document.createElement("a");
         link.innerHTML = restaurants[rest].name;
         link.setAttribute('href', "/restaurant.php?id=" + restaurants[rest].id);
