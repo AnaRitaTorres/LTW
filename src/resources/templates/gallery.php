@@ -9,13 +9,13 @@
     <?php }?>
 </div>
 
-<div id="galleryModal" class="modal">
-    <span class="close cursor">&times;</span>
-    <div class="modal-content">
+<div id="galleryModal" class="galleryModal">
+    <span class="closeGalleryCursor">&times;</span>
+    <div class="galleryContent">
 
         <?php $counter = 1;
         foreach ($images as $image) { ?>
-            <div class="mySlides">
+            <div class="gallerySlides">
                 <div class="numbertext"><?php echo $counter++; echo ' / ' . count($images) ?></div>
                 <img src="public/img/originals/<?php echo ($image['id'] . "." . $image['extension'])?>"  style="width:100%">
             </div>
@@ -23,9 +23,16 @@
 
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>
-    </div>
 
-    <div class="caption-container">
-        <p id="caption"></p>
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <?php $counter = 1;
+        foreach ($images as $image) { ?>
+            <div class="column">
+                <img class="demo" src="public/img/thumbs_small/<?php echo ($image['id'] . "." . $image['extension'])?>" id="demo<?php echo $counter++ ?>" alt="<?php echo $image["title"] ?>">
+            </div>
+        <?php }?>
     </div>
 </div>
