@@ -32,6 +32,24 @@ function userExists($username, $password){
     return ($result !== false && password_verify($password, $result['password']));
 }
 
+function usernameExists($username){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM users where username = ?');
+    $stmt->execute(array($username));
+    $result = $stmt->fetch();
+    return ($result !== false);
+}
+
+function emailInUse($email){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM users where email = ?');
+    $stmt->execute(array($email));
+    $result = $stmt->fetch();
+    if(count($result) != 0)
+        return true;
+    else return false;
+}
+
 function newUser($name, $password, $email, $firstName, $lastName){
     global $db;
     $options = ['cost' => 12];
@@ -44,12 +62,6 @@ function deleteUserByID($id){
     global $db;
     $stmt = $db->prepare('DELETE * FROM users where id = ?');
     $stmt->execute(array($id));
-}
-
-function deleteUserByName($username){
-    global $db;
-    $stmt = $db->prepare('DELETE * FROM users where username = ?');
-    $stmt->execute(array($username));
 }
 
 function updateUser($id , $password, $firstName, $lastName, $age, $address){

@@ -235,6 +235,10 @@ span.psw {
     }
 }
 
+#bottomForm{
+    background-color:#f1f1f1;
+}
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

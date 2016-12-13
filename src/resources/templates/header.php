@@ -12,7 +12,7 @@
         <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
         <script src="../../public/js/search.js"></script>
         <script src="../../public/js/map.js"></script>
-        <script src="../../public/js/comments.js"></script>c
+        <script src="../../public/js/comments.js"></script>
         <script type="text/javascript" src="../../public/js/auth.js"></script>
     </head>
     <body>

@@ -1,58 +1,91 @@
 $(document).ready(function(){
 
-    var loginModal = document.getElementById('id01');
-    var registerModal = document.getElementById('id02');
+    $(document).on('click','.loginbtn',function(){
+       $("#id01").show();
+    });
 
-    // When the user clicks anywhere outside of the modal, close it
+    $(document).on('click','#loginClose',function(){
+        $("#id01").hide();
+    });
+
+    $(document).on('click','#loginCancel',function(){
+        $("#id01").hide();
+    });
+
+    $(document).on('click','.registerbtn',function(){
+        $("#id02").show();
+    });
+
+    $(document).on('click','#registerClose',function(){
+        $("#id02").hide();
+    });
+
+    $(document).on('click','#registerCancel',function(){
+        $("#id02").hide();
+    });
+
+    $(document).on('click','#notRegistered',function(){
+        $("#id01").hide();
+        $("#id02").show();
+    });
+
     window.onclick = function(event) {
-        if (event.target == loginModal) {
-            loginModal.style.display = "none";
+        if (event.target == $("#id01")[0]) {
+            $("#id01").hide();
         }
-
-        if (event.target == registerModal) {
-            registerModal.style.display = "none";
+        if (event.target == $("#id02")[0]) {
+            $("#id02").hide();
         }
     }
 
     $("#loginForm").validate({
         rules:
         {
-                password: {
-                    required: true,
-                },
-                username: {
-                    required: true,
-                },
+            password: {
+                required: true,
             },
-            messages:
-            {
-                password:{
-                    required: "Please Enter Your Password.",
-                    minlength: "The Password Minimum Length is 8."
-                },
-                username: "Please Enter Your Username.",
+            username: {
+                required: true,
             },
-            submitHandler: submitLogin
-        });
-
-        function submitLogin()
+        },
+        messages:
         {
-            var username = $("#loginForm").find("#username").val();
-            var password = $("#loginForm").find("#password").val();
-            $.ajax({
-                type : 'POST',
-                url  : '/controllers/login.php',
-                data : {
-                    "username": username,
-                    "password": password
-                },
-                datatype: "text",
-                success: function(data){
+            password:{
+                required: "Please Enter Your Password.",
+                minlength: "The Password Minimum Length is 8."
+            },
+            username: "Please Enter Your Username.",
+        },
+        submitHandler: submitLogin
+    });
+
+    function submitLogin()
+    {
+        var username = $("#loginForm").find("#username").val();
+        var password = $("#loginForm").find("#password").val();
+        $.ajax({
+            type : 'POST',
+            url  : '/controllers/login.php',
+            data : {
+                "username": username,
+                "password": password
+            },
+            datatype: "text",
+            success: function(data){
+                $("#loginForm").find(".error").hide();
+                var div ='<div class="error">' + data + '</div>';
+                if(data == "Wrong password!" || data == "Invalid username!")
+                    $("#loginForm").children(".container").first().append(div);
+                else{
                     window.location = "mainPage.php";
                 }
-            });
-            return false;
-        }
+            },
+            error: function(data){
+                alert(data);
+            }
+        });
+        return false;
+    }
 
     $("#registerForm").validate({
         rules:
@@ -115,7 +148,16 @@ $(document).ready(function(){
             },
             datatype: "text",
             success: function(data){
-                window.location = "mainPage.php";
+                $("#registerForm").find(".error").hide();
+                var div ='<div class="error">' + data + '</div>';
+                if(data == "Invalid username!" || data == "Email address already in use!")
+                    $("#registerForm").children(".container").first().append(div);
+                else{
+                    window.location = "mainPage.php";
+                }
+            },
+            error: function(data){
+                alert(data);
             }
         });
         return false;
