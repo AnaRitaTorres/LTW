@@ -71,7 +71,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password], input[type=email], input[type=url], input[type=textarea]{
+input[type=text], input[type=password], input[type=email], input[type=url]{
     width: 100%;
     padding: 5px 15px;
     margin: 8px 0;
@@ -302,7 +302,7 @@ ol.commentList{
     margin: 10px 5px;
     padding: 10px;
 }
-.commentList .comment-body{
+.commentList .commentBlock{
     padding: 10px;
     background: #EFEFEF;
     border: solid thin #DEDEDE;
@@ -319,19 +319,18 @@ ol.commentList li{
     list-style: none;
 }
 
-ol.commentList .comment-author{
-    float: left
-}
-.comment-body cite.fn{
-    font-size: 14px;
-    font-style: normal;
-}
-.commentData a{
-    margin: 0;
+.comment-head{
+    text-align: left;
     font-size: 11px;
     color: #999;
 }
-.comment-body p{
+
+.commentBlock cite.fn{
+    font-size: 14px;
+    font-style: normal;
+}
+
+.commentBlock p{
     margin: 5px;
 }
 
@@ -341,4 +340,13 @@ ol.commentList .comment-author{
 
 #reviewContent #body{
     width: 50%;
+}
+
+#replyForm #body{
+    width: 100%;
+    padding: 5px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }

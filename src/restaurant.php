@@ -14,6 +14,8 @@ $isOwner = isOwner($user["id"], $restaurant["id"]);
 $reviews = getRestaurantReviews($restaurant["id"]);
 $images = getRestaurantImages($restaurant["id"]);
 $nReviews = getNrReviews($user["id"], $restaurant["id"]);
+
+include('resources/templates/reply_form.php');
 ?>
     <div style="padding:20px;">
 
@@ -25,45 +27,51 @@ $nReviews = getNrReviews($user["id"], $restaurant["id"]);
         <?php echo $restaurant["description"]; ?>
     </div>
 
-    <section id="images">
-        <?php foreach ($images as $image) { ?>
+<!--    <section id="images">
+        <?php /*foreach ($images as $image) { */?>
             <article class="image">
-                <header><h2><?=$image['title']?></h2></header>
-                <img src="public/img/thumbs_small/<?=$image['id']?>.jpg" width="200" height="200">
+                <header><h2><?/*=$image['title']*/?></h2></header>
+                <img src="public/img/thumbs_small/<?/*=$image['id']*/?>.jpg" width="200" height="200">
             </article>
-        <?php } ?>
+        <?php /*} */?>
     </section>
 
     <h3>Location</h3>
     <div id="location"></div>
-    <input type="hidden" name="restaurantId" id="restaurantId" value="<?php echo $restaurant["id"];?>">
+    <input type="hidden" name="restaurantId" id="restaurantId" value="<?php /*echo $restaurant["id"];*/?>">
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=showMap&libraries=places"></script>
-
+-->
     <ol class="commentList">
         <h4>Reviews</h4>
         <li class="comment" id="comment">
             <?php foreach ($reviews as $review):?>
-                <div class="comment-body" id="comment<?$review['id']?>">
-                    <div class="comment-author">
+                <div class="commentBlock" id="comment<?php echo $review['id']?>">
+                    <div class="comment-head">
+                        <a id="hideBody">[-]</a>
                         <cite class="fn"><?php $author = getUserByID($review['user_id']); echo $author["username"]?></cite>
-                        <span class="says">says:</span>
-                    </div>
-                    <p><?php echo $review['body']?></p>
-                    <div class="commentData">
+                        <a><?php echo ($review['likes'] - $review['dislikes'])?> points</a>
                         <a><?php echo $review['date']?></a>
                     </div>
-                    <div class="reply">
-                        <a rel="nofollow" class="comment-reply-link" href="/bigurlagain" onclick="javascriptcode">Reply</a>
+
+                    <div class="comment-body">
+                        <p><?php echo $review['body']?></p>
+                        <?php $author = getUserByID($review['user_id']); if($author["username"] != $user["username"]):?>
+                        <div class="reply">
+                            <a class="comment-reply-link" id="reply<?php echo $review['id']?>">Reply</a>
+                        </div>
+                        <?php endif;?>
                     </div>
+
+
                 </div>
             <?php endforeach; ?>
         </li>
     </ol>
 
 <?php if(!$isOwner && $nReviews == 0):?>
-    <button id="newReview">Review Restaurant</button><br><br>
     <div id="reviewContent">
+        <button id="newReview">Review Restaurant</button><br><br>
         <form action="/controllers/action_addReview.php" method="post" id="reviewForm">
             <input type="hidden" name="restaurant_id" id="restaurant_id" value="<?php echo $restaurant["id"];?>">
             <label>Title:
