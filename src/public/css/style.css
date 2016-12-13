@@ -8,13 +8,21 @@ body{
 
 
 #wrapper{
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.85);
     padding-bottom:10%;
     padding-top:10%;
     font-family: 'Arbutus Slab', serif;
     overflow: auto;
     text-align: center;
 }
+
+/*#subWrapper{
+    background-color: #f1f1f1;
+    padding:10%;
+    padding-left: 5%;
+    padding-right: 5%;
+
+}*/
 
 header{
     background-color: darkred;
@@ -39,6 +47,7 @@ h1{
 h2{
     font-family: 'Playfair Display SC', serif;
     color: black;
+    font-size:130%;
 }
 
 h3{
@@ -57,16 +66,26 @@ form {
 
 #content .user{
     text-align: left;
-    padding: 10px;
+    padding: 20px;
 }
 
 .createRestaurant{
     text-align: left;
     padding: 10px;
 }
-.search_restaurants{
+
+.content .search_restaurants{
     text-align: left;
-    padding: 10px;
+    padding: 190px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.content .search_restaurants #restaurant_name{
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: left;
 
 }
 

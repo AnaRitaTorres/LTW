@@ -36,4 +36,6 @@
             <button onclick="location.href='/mainPage.php'" class="homebtn2">Home</button>
         <?php endif; ?>
         <div id="wrapper">
+            <div id="subWrapper">
+
 
