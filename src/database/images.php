@@ -22,11 +22,11 @@ function deleteImageByID($id){
     $stmt->execute(array($id));
 }
 
-function newImage($title, $restaurant_id)
+function newImage($title, $restaurant_id, $extension)
 {
     global $db;
-    $stmt = $db->prepare('INSERT INTO images (path, restaurant_id) values(?, ?)');
-    $stmt->execute(array($title, $restaurant_id));
+    $stmt = $db->prepare('INSERT INTO images (title, restaurant_id, extension) values(?, ?, ?)');
+    $stmt->execute(array($title, $restaurant_id, $extension));
 }
 
 function getRestaurantImages($restaurant_id)

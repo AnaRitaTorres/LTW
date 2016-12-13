@@ -5,7 +5,6 @@ include_once ('controllers/validation.php');
 include_once('database/connection.php');
 include_once('database/restaurants.php');
 include_once('database/users.php');
-$restaurant = getRestaurantByName($_SESSION["name"]);
 $user = getUserByName($_SESSION['username']);
 $restaurant = getRestaurantByID($_GET["id"]);
 $isOwner = isOwner($user["id"], $restaurant["id"]);
@@ -20,7 +19,7 @@ if(!$isOwner)
             <form action="/controllers/action_updateRestaurant.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $restaurant['id'];?>"/>
                 <label>Name:
-                    Name: <input type="text" name="name" placeholder="<?php echo $restaurant['name'];?>"/>
+                    <input type="text" name="name" placeholder="<?php echo $restaurant['name'];?>"/>
                 </label>
                 <br>
                 <label>
@@ -39,20 +38,16 @@ if(!$isOwner)
                     Link: <input type="url" name="link" placeholder="<?php echo $restaurant['link'];?>"/>
                 </label>
                 <br>
-                <label>
-                    Address: <input type="text" name="address" placeholder="<?php echo $restaurant['address'];?>"/>
-                </label>
-                <br>
                 <button type="submit"class="savebtn">Save</button>
             </form>
         </div>
 
-        <form action="/controllers/upload.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?php echo $restaurant['id'];?>"/>
+        <form action="/controllers/upload.php" method="post" enctype="multipart/form-data" id="imageForm">
+            <input id="restaurant_id" type="hidden" name="id" value="<?php echo $restaurant['id'];?>"/>
             <label>Title:
-                <input type="text" name="title">
+                <input type="text" name="title" id="title">
             </label>
-            <input type="file" name="image" id="image">
+            <input type="file" name="image" id="image" required>
             <input type="submit" value="Upload">
         </form>
     </div>

@@ -28,21 +28,18 @@ include('resources/templates/reply_form.php');
         <?php echo $restaurant["description"]; ?>
     </div>
 
-<!--    <section id="images">
-        <?php /*foreach ($images as $image) { */?>
-            <article class="image">
-                <header><h2><?/*=$image['title']*/?></h2></header>
-                <img src="public/img/thumbs_small/<?/*=$image['id']*/?>.jpg" width="200" height="200">
-            </article>
-        <?php /*} */?>
-    </section>
+<?php
+include('resources/templates/gallery.php');
+?>
 
+    <!--
     <h3>Location</h3>
     <div id="location"></div>
     <input type="hidden" name="restaurantId" id="restaurantId" value="<?php /*echo $restaurant["id"];*/?>">
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=showMap&libraries=places"></script>
 -->
+
     <ol class="commentList">
         <h4>Reviews</h4>
         <li class="comment" id="comment">
