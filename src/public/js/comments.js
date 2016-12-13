@@ -4,16 +4,25 @@ $(document).ready(function(){
         $("#reviewContent").fadeToggle();
     });
 
-    $("#hideBody").click(function(){
+    $(document).on('click','#hideBody',function(){
         var father = $(this).parent();
         var grandfather = father.parent();
-        $(grandfather.find(".comment-body")).toggle();
+        $(grandfather.find(".comment-head")).nextAll().toggle();
         if($(grandfather.find(".comment-body")).css('display') == 'none') {
-            $("#hideBody").text('[+]');
-        }else $("#hideBody").text('[-]');
+            $(this).text('[+]');
+        }else $(this).text('[-]');
     });
 
-    $(".comment-reply-link").click(function () {
+
+    $(document).on('click','#hideReply',function(){
+        var father = $(this).parent();
+        $(father.find("#replyBody")).toggle();
+        if($(father.find("#replyBody")).css('display') == 'none') {
+            $(this).text('[+]');
+        }else $(this).text('[-]');
+    });
+
+    $(document).on('click','.comment-reply-link',function(){
         $("#id03").show();
         var id = parseInt($(this).attr('id').replace(/[^\d]/g, ''), 10);
         $("#replyForm").find("#review_id").attr("value", id);
@@ -52,28 +61,25 @@ $(document).ready(function(){
             var review = arr[0];
             var user = arr[1];
             var commentId = "comment"+review["id"];
-            var replyId = "reply"+review["id"];
             var username = user["username"];
             var body = review["body"];
             var date = review["date"];
-            var points = review["likes"] - review["dislikes"];
+            var points = review["score"];
 
 
             var div =   '<div class="commentBlock" id=' + commentId + '>' +
                         '    <div class="comment-head">' +
                         '        <a id="hideBody">[-]</a>' +
                         '        <cite class="fn">' + username + '</cite>' +
-                        '        <a>' + points + '</a>' +
+                        '        <a>' + points + '/10 points</a>' +
                         '        <a>' + date + '</a>' +
                         '    </div>' +
                         '    <div class="comment-body">' +
                         '        <p>' + body +'</p>' +
-                        '    <div class="reply">' +
-                        '    <a class="comment-reply-link" id='+ replyId +'>Reply</a>' +
-                        '    </div>' +
                         '</div>';
             $('#comment').append(div);
             $('#reviewContent').hide();
+            $('#newReview').hide();
         });
 
         // Callback handler that will be called on failure
@@ -118,11 +124,13 @@ $(document).ready(function(){
             var reply = "reply" + comment["id"];
             var username = user["username"];
             var body = comment["body"];
+            var date = comment["date"];
 
             var div =   '<div class="commentBlock" id=' + reply + '>' +
                 '    <div class="comment-head">' +
-                '        <a id="hideBody">[-]</a>' +
+                '        <a id="hideReply">[-]</a>' +
                 '        <cite class="fn">' + username + '</cite>' +
+                '        <a>' + date + '</a>' +
                 '        <p id="replyBody">'+ body + '</p>' +
                 '    </div>' +
                 '</div>';

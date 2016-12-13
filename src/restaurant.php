@@ -7,6 +7,7 @@ include('database/users.php');
 include('database/restaurants.php');
 include('database/images.php');
 include('database/reviews.php');
+include('database/replies.php');
 
 $user = getUserByName($_SESSION['username']);
 $restaurant = getRestaurantByID($_GET["id"]);
@@ -50,28 +51,42 @@ include('resources/templates/reply_form.php');
                     <div class="comment-head">
                         <a id="hideBody">[-]</a>
                         <cite class="fn"><?php $author = getUserByID($review['user_id']); echo $author["username"]?></cite>
-                        <a><?php echo ($review['likes'] - $review['dislikes'])?> points</a>
+                        <a><?php echo $review['score']?>/10 points</a>
                         <a><?php echo $review['date']?></a>
                     </div>
 
                     <div class="comment-body">
                         <p><?php echo $review['body']?></p>
-                        <?php $author = getUserByID($review['user_id']); if($author["username"] != $user["username"]):?>
+                        <?php
+                            $author = getUserByID($review['user_id']);
+                            $replies = getReviewReplies($review["id"]);
+                            $alreadyReplied = checkReplies($replies, $user["id"]);
+                        if($author["username"] != $user["username"] && $alreadyReplied == false):?>
                         <div class="reply">
                             <a class="comment-reply-link" id="reply<?php echo $review['id']?>">Reply</a>
                         </div>
                         <?php endif;?>
                     </div>
 
-
+                    <?php
+                    foreach ($replies as $reply):?>
+                        <div class="commentBlock" id="reply<?php echo $reply['id']?>">
+                            <div class="comment-head">
+                                <a id="hideReply">[-]</a>
+                                <cite class="fn"> <?php $replyUser = getUserByID($reply["user_id"]); echo $replyUser["username"]?></cite>
+                                <a><?php echo $reply['date']?></a>
+                                <p id="replyBody"> <?php echo $reply['body']?></p>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             <?php endforeach; ?>
         </li>
     </ol>
 
 <?php if(!$isOwner && $nReviews == 0):?>
+    <button id="newReview">Review Restaurant</button><br><br>
     <div id="reviewContent">
-        <button id="newReview">Review Restaurant</button><br><br>
         <form action="/controllers/action_addReview.php" method="post" id="reviewForm">
             <input type="hidden" name="restaurant_id" id="restaurant_id" value="<?php echo $restaurant["id"];?>">
             <label>Title:

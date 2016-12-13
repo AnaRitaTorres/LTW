@@ -11,8 +11,8 @@ function getAllReviews(){
 function newReview($title, $score, $body, $user_id, $restaurant_id){
     global $db;
     $date = (new \DateTime())->format('Y-m-d H:i:s');
-    $stmt = $db->prepare('INSERT INTO reviews (title, user_id, restaurant_id, score, body, date, likes, dislikes) values(?, ?, ?, ?, ?, ?, ?, ?)');
-    $stmt->execute(array($title, $user_id, $restaurant_id, $score, $body, $date, 0, 0));
+    $stmt = $db->prepare('INSERT INTO reviews (title, user_id, restaurant_id, score, body, date) values(?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($title, $user_id, $restaurant_id, $score, $body, $date));
     return $db->lastInsertId();
 }
 
@@ -42,5 +42,13 @@ function getNrReviews($user_id, $restaurant_id){
     $stmt->execute(array($user_id, $restaurant_id));
     $result = $stmt->fetchAll();
     return count($result);
+}
+
+function getReviewReplies($review_id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM replies where review_id = ?');
+    $stmt->execute(array($review_id));
+    $result = $stmt->fetchAll();
+    return $result;
 }
 
