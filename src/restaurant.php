@@ -92,7 +92,7 @@ include('resources/templates/reply_form.php');
             <label>Title:
                 <input type="text" name="title" id="title" required maxlength="50">
             </label><br>
-            <label>Body:
+            <label>Body:<br>
                 <textarea id="body" rows="5" cols="100" name="body" maxlength="255" id="body" required></textarea>
             </label><br>
             <label>Rating:
@@ -102,9 +102,7 @@ include('resources/templates/reply_form.php');
         </form>
     </div>
 <?php endif;?>
-
-    <input type="button" onclick="location.href='/restaurantsPage.php'" value="Back" />
-
+    <button onclick="location.href='/restaurantsPage.php'" class="backbtn">Back</button>
 <?
 include('resources/templates/footer.php');
 ?>
