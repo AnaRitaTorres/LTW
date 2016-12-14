@@ -19,11 +19,6 @@ $nReviews = getNrReviews($user["id"], $restaurant["id"]);
 include('resources/templates/reply_form.php');
 ?>
     <div style="padding:20px;">
-
-        <?php if($isOwner):?>
-            <input type="button" onclick="location.href='<?= '/editRestaurantPage.php?id=' . $restaurant['id'] ?>';" value="Edit Restaurant" />
-        <?php endif;?>
-
         <h2>Restaurant <?php echo $restaurant["name"]; ?></h2>
         <?php echo $restaurant["description"]; ?>
     </div>
@@ -99,6 +94,11 @@ include('resources/templates/gallery.php');
         </form>
     </div>
 <?php endif;?>
+
+<?php if($isOwner):?>
+    <button onclick="location.href='<?= '/editRestaurantPage.php?id=' . $restaurant['id'] ?>';">Edit Restaurant</button>
+<?php endif;?>
+
     <button onclick="location.href='/restaurantsPage.php'" class="backbtn">Back</button>
 <?
 include('resources/templates/footer.php');

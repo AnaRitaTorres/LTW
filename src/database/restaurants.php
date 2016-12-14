@@ -67,10 +67,10 @@ function new_restaurant_user($user_id, $restaurant_id){
     $stmt->execute(array($restaurant_id, $user_id));
 }
 
-function updateRestaurant($id,$description, $link){
+function updateRestaurant($id, $name, $description, $website, $price, $category){
   global $db;
-  $stmt = $db->prepare('UPDATE restaurants SET description = ?, link = ? where id =?');
-  $stmt->execute(array($description,$link,$id));
+  $stmt = $db->prepare('UPDATE restaurants SET name=?, description = ?, website = ?, price=?, category=? where id =?');
+  $stmt->execute(array($name, $description, $website, $price, $category, $id));
 }
 
 function searchRestaurant($name){

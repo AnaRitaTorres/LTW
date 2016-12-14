@@ -1,4 +1,3 @@
-// Setup the events only when document finished loading
 window.addEventListener("load", function(){
     var path = window.location.pathname;
     var page = path.split("/").pop();
@@ -6,13 +5,11 @@ window.addEventListener("load", function(){
         setUp();
 }, true);
 
-// Setup the events
 function setUp() {
     $(document).on('click','#restaurant_name', restaurantChanged);
     $(document).on('keyup','#restaurant_name', restaurantChanged);
 }
 
-// Handler for change event on text input
 function restaurantChanged(event) {
     var text = event.target;
 
@@ -22,7 +19,6 @@ function restaurantChanged(event) {
     request.send();
 }
 
-// Handler for ajax response received
 function restaurantsReceived() {
     var restaurants = JSON.parse(this.responseText);
     var list = $("#suggestions");

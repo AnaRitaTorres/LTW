@@ -8,15 +8,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
     $restaurant = getRestaurantByID($id);
 
-    if ($_POST["description"] == null)
-        $description = $restaurant["description"];
-    else $description = $_POST["description"];
+    $name = trim(strip_tags($_POST["name"]));
+    $description = trim(strip_tags($_POST["description"]));
+    $website = trim(strip_tags($_POST["url"]));
+    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $category = $_POST["category"];
 
-    if ($_POST["link"] == null)
-        $link = $restaurant["link"];
-    else $link = $_POST["link"];
-
-    updateRestaurant($id, $description, $link);
+    updateRestaurant($id, $name, $description, $website, $price, $category);
 
     $path = '../restaurant.php?id=' . $id;
 
