@@ -129,20 +129,11 @@ button {
 .backbtn{
     width: 20%;
 }
-.userbtn{
+.defaultbtn{
     margin-bottom: 5px;
     width: 50%;
 }
 
-.restaurantbtn{
-    margin-bottom: 5px;
-    width: 50%;
-}
-
-.newRestbtn{
-    margin-bottom: 5px;
-    width: 50%;
-}
 .savebtn{
     width:100%;
 
@@ -518,4 +509,22 @@ img.hover-shadow {
 .upload {
     margin: 10px 5px;
     padding: 10px;
+}
+
+.info {
+    margin: 10px 5px;
+    padding: 10px;
+    text-align: left;
+}
+
+.ownership {
+    margin: 10px 5px;
+    padding: 10px;
+    text-align: left;
+}
+
+.reviews {
+    margin: 10px 5px;
+    padding: 10px;
+    text-align: left;
 }

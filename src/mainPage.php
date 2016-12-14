@@ -5,8 +5,8 @@
 
 <div class="main">
     <p id="user">Welcome <?php echo $_SESSION['username']; ?>!</p>
-    <button onclick="location.href='/editUserPage.php'" class="userbtn">Edit User Information</button>
-    <button onclick="location.href='/restaurantsPage.php'" class="restaurantbtn">Restaurants</button>
+    <button onclick="location.href='/profilePage.php?username=<?php echo $_SESSION['username']; ?>'" class="defaultbtn">Profile</button>
+    <button onclick="location.href='/restaurantsPage.php'" class="defaultbtn">Restaurants</button>
   </div>
 
 <?php

@@ -5,6 +5,10 @@ include_once ('controllers/validation.php');
 include_once('database/connection.php');
 include_once('database/users.php');
 $user = getUserByName($_SESSION["username"]);
+$idUser = $_GET["id"];
+
+if($user["id"] != $idUser)
+    header("Location: " . $_SERVER['HTTP_REFERER']);
 ?>
 
 <div id="content">

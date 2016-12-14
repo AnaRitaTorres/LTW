@@ -20,7 +20,7 @@ $user_restaurants = getUserRestaurants($user["id"]);
                     </li>
                 <?php endforeach; ?>
             </ul>
-            <button onclick="location.href='/createRestaurantPage.php'" class="newRestbtn">New Restaurant</button>
+            <button onclick="location.href='/createRestaurantPage.php'" class="defaultbtn">New Restaurant</button>
         </div>
 
         <h3>Restaurants</h3>
@@ -32,6 +32,8 @@ $user_restaurants = getUserRestaurants($user["id"]);
             </ul>
         </div>
     </div>
+
+    <button onclick="location.href='/mainPage.php'" class="backbtn">Back</button>
 <?
 include('resources/templates/footer.php');
 ?>

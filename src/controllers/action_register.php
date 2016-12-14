@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['authenticated'] = false;
         $_SESSION['username'] = null;
     } else{
-        newUser($username, $password, $email, $firstName, $lastName);
+        newUser($username, $password, $email, $firstName, $lastName, $gender);
         session_start();
         $_SESSION["authenticated"] = 'true';
         $_SESSION["username"] = $username;
