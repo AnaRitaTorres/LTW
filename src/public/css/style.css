@@ -11,18 +11,10 @@ body{
     background-color: rgba(255,255,255,0.85);
     padding-bottom:10%;
     padding-top:10%;
-    font-family: 'Arbutus Slab', serif;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     overflow: auto;
     text-align: center;
 }
-
-/*#subWrapper{
-    background-color: #f1f1f1;
-    padding:10%;
-    padding-left: 5%;
-    padding-right: 5%;
-
-}*/
 
 header{
     background-color: darkred;
@@ -55,6 +47,12 @@ h3{
     color: black;
 }
 
+h4{
+    font-family: 'Playfair Display SC', serif;
+    color: black;
+    font-size:100%;
+}
+
 .main #user{
     font-size: 120%;
 }
@@ -62,6 +60,7 @@ h3{
 form {
     border: 3px solid #f1f1f1;
     background-color: #f1f1f1;
+    padding:10px;
 }
 
 #content .user{
@@ -78,14 +77,14 @@ form {
     padding: 10px;
 }
 
-.content .search_restaurants{
+.search_restaurants {
     text-align: left;
     padding: 190px;
     padding-top: 10px;
     padding-bottom: 20px;
 }
 
-.content .search_restaurants #restaurant_name{
+.search_restaurants #restaurant_name{
     background-image: url(../img/search.png);
     background-repeat: no-repeat;
     background-size: 20px 20px;
@@ -93,6 +92,11 @@ form {
     padding-left: 25px;
 }
 
+.profile{
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    padding:10px;
+}
 
 /* Full-width inputs */
 input[type=text], input[type=password], input[type=email], input[type=url] {
@@ -127,17 +131,17 @@ button {
 }
 
 .backbtn{
-    width: 20%;
+    width: 10%;
 }
-.defaultbtn{
+.edittbtn{
     margin-bottom: 5px;
-    width: 50%;
+    width: 100%;
 }
 
 .savebtn{
     width:100%;
-
 }
+
 /* Extra style for the home button */
 .homebtn1{
     background-color: darkred;
@@ -295,7 +299,9 @@ span.psw {
 #images article.image {
     width: 200px;
     display:inline-block;
-    border: 0; margin: 0; padding: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 article.image header{
@@ -321,7 +327,7 @@ article.single img{
 
 #map {
     width:100%;
-    height:500px
+    height:500px;
 }
 
 #location {

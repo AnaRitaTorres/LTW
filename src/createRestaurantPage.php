@@ -4,7 +4,7 @@
 ?>
     <h3>Restaurant Information</h3>
 
-    <h2>Location</h2>
+    <h4>Location</h4>
     <div id="map"></div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=initMap&libraries=places"></script>
 

@@ -40,10 +40,10 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
 </div>
 
 <?php if($isOwner):?>
-    <button onclick="location.href='<?= '/editUserPage.php?id=' . $user['id'] ?>';" class="defaultbtn">Edit Account</button>
+    <button onclick="location.href='<?= '/editUserPage.php?id=' . $user['id'] ?>';" class="edittbtn">Edit Account</button>
 <?php endif;?>
 
-    <button onclick="location.href='/mainPage.php'" class="defaultbtn">Back</button>
+    <button onclick="location.href='/mainPage.php'" class="backbtn">Back</button>
 
 <?
 include('resources/templates/footer.php');
