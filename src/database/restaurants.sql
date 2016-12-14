@@ -17,7 +17,8 @@ CREATE TABLE restaurants (
 	description VARCHAR NOT NULL,
 	price FLOAT,
 	category VARCHAR NOT NULL,
-	link VARCHAR,
+	website VARCHAR,
+	inauguration DATE,
   location_id FLOAT NOT NULL
 );
 

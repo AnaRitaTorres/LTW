@@ -31,19 +31,16 @@ $(document).ready(function(){
             setDescription(geocoder, map, infowindow);
         }
 
-        // Sets the map on all markers in the array.
         function setMapOnAll(map) {
             for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
             }
         }
 
-        // Removes the markers from the map, but keeps them in the array.
         function clearMarkers() {
             setMapOnAll(null);
         }
 
-        // Deletes all markers in the array by removing references to them.
         function deleteMarkers() {
             clearMarkers();
             markers = [];
@@ -59,9 +56,11 @@ $(document).ready(function(){
                         infowindow.open(map, markers[0]);
                     } else {
                         window.alert('No results found');
+                        deleteMarkers();
                     }
                 } else {
                     window.alert('Geocoder failed due to: ' + status);
+                    deleteMarkers();
                 }
             });
         }
@@ -81,10 +80,8 @@ $(document).ready(function(){
 
         function getLocationID() {
             if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
                 xmlhttp = new XMLHttpRequest();
             } else {
-                // code for IE6, IE5
                 xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange = function() {
@@ -98,8 +95,6 @@ $(document).ready(function(){
             xmlhttp.send();
         }
 
-        // This function is called when the user clicks the UI button requesting
-        // a reverse geocode.
         function geocodePlaceId(geocoder, map, infowindow) {
             geocoder.geocode({'placeId': location}, function(results, status) {
                     if (status === 'OK') {
@@ -125,22 +120,24 @@ $(document).ready(function(){
     var request;
     $("#restaurantForm").submit(function(event){
 
-        // Prevent default posting of form - put here to work in case of errors
         event.preventDefault();
-
-        // Abort any pending request
         if (request) {
             request.abort();
         }
 
         if(markers.length == 0 && locationID == null) {
+            $(".createRestaurant").find(".error").hide();
+            var div = '<div class="error">Location not selected!</div>';
+            $(".createRestaurant").append(div);
             return false;
         }
 
         var name = $("#restaurantForm").find("#name").val();
         var description = $("#restaurantForm").find("#description").val();
         var category = $("#restaurantForm").find("#category").val();
-        console.log(name)
+        var website = $("#restaurantForm").find("#url").val();
+        var inauguration = $("#restaurantForm").find("#inauguration").val();
+        var price = $("#restaurantForm").find("#price").val();
 
         request = $.ajax({
             type : 'POST',
@@ -149,21 +146,19 @@ $(document).ready(function(){
                 "name": name,
                 "description": description,
                 "category": category,
-                "location": locationID
+                "price": price,
+                "location": locationID,
+                "website": website,
+                "inauguration": inauguration
             },
             datatype: "text",
         });
 
-        // Callback handler that will be called on success
         request.done(function (response, textStatus, jqXHR){
-            // Log a message to the console
-            console.log("Hooray, it worked!");
             window.location = "restaurantsPage.php";
         });
 
-        // Callback handler that will be called on failure
         request.fail(function (jqXHR, textStatus, errorThrown){
-            // Log the error to the console
             console.error(
                 "The following error occurred: "+
                 textStatus, errorThrown

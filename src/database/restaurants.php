@@ -48,30 +48,17 @@ function getRestaurantByID($id){
     return $result;
 }
 
-function getRestaurantByName($name){
-    global $db;
-    $stmt = $db->prepare('SELECT * FROM restaurants where name = ?');
-    $stmt->execute(array($name));
-    $result = $stmt->fetch();
-    return $result;
-}
-
 function deleteRestaurantByID($id){
     global $db;
     $stmt = $db->prepare('DELETE * FROM restaurants where id = ?');
     $stmt->execute(array($id));
 }
 
-function deleteRestaurantByName($name){
+function newRestaurant($name, $description, $price, $website, $inauguration, $category, $location){
     global $db;
-    $stmt = $db->prepare('DELETE * FROM restaurants where name = ?');
-    $stmt->execute(array($name));
-}
-
-function newRestaurant($name, $description, $category, $location){
-    global $db;
-    $stmt = $db->prepare('INSERT INTO restaurants (name, description, category, location_id) values(?, ?, ?, ?)');
-    $stmt->execute(array($name, $description, $category, $location));
+    $stmt = $db->prepare('INSERT INTO restaurants (name, description, price, website, inauguration, category, location_id) values(?, ?, ?, ?, ?, ?, ?)');
+    $stmt->execute(array($name, $description, $price, $website, $inauguration, $category, $location));
+    return $db->lastInsertId();
 }
 
 function new_restaurant_user($user_id, $restaurant_id){

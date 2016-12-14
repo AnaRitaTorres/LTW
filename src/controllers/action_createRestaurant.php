@@ -6,9 +6,16 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/database/users.php');
 include_once($_SERVER['DOCUMENT_ROOT'] . '/database/restaurants.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = trim(strip_tags($_POST["name"]));
+    $description  = trim(strip_tags($_POST["description"]));
+    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $website = trim(strip_tags($_POST["website"]));
+    $inauguration = $_POST["inauguration"];
+    $category = $_POST["category"];
+    $location = $_POST["location"];
+
     session_start();
     $user = getUserByName($_SESSION['username']);
-    newRestaurant($_POST["name"], $_POST["description"], $_POST["category"], $_POST["location"]);
-    $restaurant = getRestaurantByName($_POST["name"]);
-    new_restaurant_user($user["id"], $restaurant["id"]);
+    $id = newRestaurant($name, $description, $price, $website, $inauguration, $category, $location);
+    new_restaurant_user($user["id"], $id);
 }

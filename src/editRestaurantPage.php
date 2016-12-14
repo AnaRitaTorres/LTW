@@ -35,7 +35,7 @@ if(!$isOwner)
                 </label>
                 <br>
                 <label>
-                    Link: <input type="url" name="link" placeholder="<?php echo $restaurant['link'];?>"/>
+                    Link: <input type="url" name="link" placeholder="<?php echo $restaurant['website'];?>"/>
                 </label>
                 <br>
                 <button type="submit"class="savebtn">Save</button>

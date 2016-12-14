@@ -4,14 +4,15 @@
 ?>
     <h3>Restaurant Information</h3>
 
-<?php
-    include('resources/templates/restaurant_form.php');
-?>
-
-    <h3>Restaurant Location</h3>
+    <h2>Location</h2>
     <div id="map"></div>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=initMap&libraries=places"></script>
 
+<?php
+    include('resources/templates/restaurant_form.php');
+?>
+    <br>
+    <button onclick="location.href='/restaurantsPage.php'" class="backbtn">Back</button>
 <?php
     include('resources/templates/footer.php');
 ?>
