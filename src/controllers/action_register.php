@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = trim(strip_tags($_POST["firstName"]));
     $lastName= trim(strip_tags($_POST["lastName"]));
     $username = trim(strip_tags($_POST["username"]));
+    $gender = $_POST["gender"];
     $password = $_POST["password"];
     $email = $_POST["email"];
 

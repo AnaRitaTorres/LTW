@@ -12,6 +12,11 @@
             <label>
                 Last Name: <input type="text" name="lastName" id="lastName">
             </label>
+            <label>
+                Gender: <br>
+                <input type="radio" name="gender" value="male" checked> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+            </label>
             <br>
             <label>
                 Username: <input type="text" name="username" id="username">

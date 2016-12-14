@@ -7,8 +7,7 @@ CREATE TABLE users (
 	password VARCHAR(255) NOT NULL,
 	email VARCHAR NOT NULL,
 	age INTEGER,
-	gender VARCHAR,
-	address VARCHAR(255)
+	gender VARCHAR
 );
 
 DROP TABLE IF EXISTS restaurants;

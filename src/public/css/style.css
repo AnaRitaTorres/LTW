@@ -95,15 +95,20 @@ form {
 
 
 /* Full-width inputs */
-input[type=text], input[type=password], input[type=email], input[type=url]{
+input[type=text], input[type=password], input[type=email], input[type=url] {
     width: 100%;
     padding: 5px 15px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-
 }
+
+input[type=number], input[type=radio]{
+    padding: 5px 15px;
+    margin: 8px 0;
+}
+
 
 /* Set a style for all buttons */
 button {

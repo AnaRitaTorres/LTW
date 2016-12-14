@@ -129,34 +129,106 @@ $(document).ready(function(){
         submitHandler: submitRegistration
     });
 
-    function submitRegistration()
-    {
+    function submitRegistration() {
         var firstName = $("#registerForm").find("#firstName").val();
         var lastName = $("#registerForm").find("#lastName").val();
         var username = $("#registerForm").find("#username").val();
         var email = $("#registerForm").find("#email").val();
         var password = $("#registerForm").find("#password").val();
+        var gender = $('input[name=gender]:checked', '#registerForm').val();
+
         $.ajax({
-            type : 'POST',
-            url  : '/controllers/action_register.php',
-            data : {
+            type: 'POST',
+            url: '/controllers/action_register.php',
+            data: {
                 "firstName": firstName,
                 "lastName": lastName,
                 "username": username,
                 "email": email,
-                "password": password
+                "password": password,
+                "gender" : gender
             },
             datatype: "text",
-            success: function(data){
+            success: function (data) {
                 $("#registerForm").find(".error").hide();
-                var div ='<div class="error">' + data + '</div>';
-                if(data == "Invalid username!" || data == "Email address already in use!")
+                var div = '<div class="error">' + data + '</div>';
+                if (data == "Invalid username!" || data == "Email address already in use!")
                     $("#registerForm").children(".container").first().append(div);
-                else{
+                else {
                     window.location = "mainPage.php";
                 }
             },
-            error: function(data){
+            error: function (data) {
+                alert(data);
+            }
+        });
+        return false;
+    }
+
+    $("#editUserForm").validate({
+        rules:
+        {
+            firstName: {
+                maxlength: 32,
+            },
+            lastName: {
+                maxlength: 32,
+            },
+            password: {
+                minlength: 8,
+            },
+            password2: {
+                minlength: 8,
+                equalTo: $("#editUserForm").find("#password"),
+
+            },
+            old_password:{
+                required: true,
+                minlength: 8,
+            }
+        },
+        messages:
+        {
+            old_password:{
+                required: "Please Enter Your Password.",
+            },
+            lastName: "Please Enter a Valid Last Name.",
+            firstName: "Please Enter a Valid First Name.",
+        },
+        submitHandler: submitUpdate
+    });
+
+    function submitUpdate() {
+        var user_id =  $("#editUserForm").find("#user_id").val();
+        var firstName = $("#editUserForm").find("#firstName").val();
+        var lastName = $("#editUserForm").find("#lastName").val();
+        var oldPass = $("#editUserForm").find("#old_password").val();
+        var age = $("#editUserForm").find("#age").val();
+        var newPass = $("#editUserForm").find("#password").val();
+        var newPassC = $("#editUserForm").find("#password2").val();
+        $.ajax({
+            type: 'POST',
+            url: '/controllers/action_updateUser.php',
+            data: {
+                "firstName": firstName,
+                "lastName": lastName,
+                "oldPass": oldPass,
+                "user_id": user_id,
+                "age": age,
+                "newPass": newPass,
+                "newPassC": newPassC,
+            },
+            datatype: "text",
+            success: function (data) {
+                $(".user").find(".error").hide();
+                var div = '<div class="error">' + data + '</div>';
+                if (data == "Wrong password!")
+                    $(".user").append(div);
+                else {
+                    window.location = "mainPage.php";
+                }
+            },
+            error: function (data) {
                 alert(data);
             }
         });

@@ -14,7 +14,7 @@
         </label>
         <br>
         <label>Price:
-            <input type="number" name="price" id="price">
+            <input type="number" name="price" id="price" min="1" >
         </label>
         <br>
         <label>Description:<br>

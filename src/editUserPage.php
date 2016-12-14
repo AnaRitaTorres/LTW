@@ -10,40 +10,37 @@ $user = getUserByName($_SESSION["username"]);
 <div id="content">
     <h2>Edit User's Account</h2>
 	<div class="user">
-		<form action="/controllers/action_updateUser.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $user['id'];?>">
-			<input type="hidden" name="email" value="<?php echo $user['email'];?>">
+		<form action="/controllers/action_updateUser.php" method="post" id="editUserForm">
+            <input type="hidden" name="user_id" id="user_id" value="<?php echo $user['id'];?>">
 
-            <label>First Name: <input type="text" name="first_name" placeholder="<?php echo $user['first_name'];?>">
+            <label>First Name: <input type="text" name="firstName" id="firstName" placeholder="<?php echo $user['first_name'];?>">
             </label>
             <br>
             <label>
-                Last Name: <input type="text" name="last_name" placeholder="<?php echo $user['last_name'];?>">
+                Last Name: <input type="text" name="lastName" id="lastName" placeholder="<?php echo $user['last_name'];?>">
             </label>
             <br>
             <label>
-                Age: <input type="text" name="age" placeholder="<?php echo $user['age'];?>">
+                Age: <input type="number" name="age" id="age" min="18" max="100" value="<?php echo $user['age'];?>">
             </label>
             <br>
             <label>
-                Address: <input type="text" name="address" placeholder="<?php echo $user['address'];?>">
+                New Password: <input type="password" name="password" id="password" minlength="8">
             </label>
             <br>
             <label>
-                New Password: <input type="password" name="password" minlength="8">
+                Repeat new password: <input type="password" name="password2" id="password2" minlength="8">
             </label>
             <br>
             <label>
-                Repeat new password: <input type="password" name="password2" minlength="8">
-            </label>
-            <br>
-            <label>
-                Current Password: <input type="password" name="old_password" required>
+                Current Password: <input type="password" name="old_password" id="old_password" required>
             </label>
             <br>
             <button type="submit"class="savebtn">Save</button>
 		</form>
 	</div>
+
+    <button onclick="location.href='/mainPage.php'" class="backbtn">Back</button>
 </div>
 
 <?php

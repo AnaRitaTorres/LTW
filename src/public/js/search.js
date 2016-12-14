@@ -8,6 +8,7 @@ window.addEventListener("load", function(){
 
 // Setup the events
 function setUp() {
+    $(document).on('click','#restaurant_name', restaurantChanged);
     $(document).on('keyup','#restaurant_name', restaurantChanged);
 }
 

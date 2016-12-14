@@ -40,22 +40,28 @@ function usernameExists($username){
     return ($result !== false);
 }
 
+function passwordMatch($id, $password){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM users where id = ?');
+    $stmt->execute(array($id));
+    $result = $stmt->fetch();
+    return (password_verify($password, $result['password']));
+}
+
 function emailInUse($email){
     global $db;
     $stmt = $db->prepare('SELECT * FROM users where email = ?');
     $stmt->execute(array($email));
     $result = $stmt->fetch();
-    if(count($result) != 0)
-        return true;
-    else return false;
+    return ($result !== false);
 }
 
-function newUser($name, $password, $email, $firstName, $lastName){
+function newUser($name, $password, $email, $firstName, $lastName, $gender){
     global $db;
     $options = ['cost' => 12];
-    $stmt = $db->prepare('INSERT INTO users (username, first_name, last_name, password, email) values(?, ?, ?, ?, ?)');
+    $stmt = $db->prepare('INSERT INTO users (username, first_name, last_name, password, email, gender) values(?, ?, ?, ?, ?, ?)');
     $encryptedPass = password_hash($password, PASSWORD_DEFAULT, $options);
-    $stmt->execute(array($name, $firstName, $lastName, $encryptedPass, $email));
+    $stmt->execute(array($name, $firstName, $lastName, $encryptedPass, $email, $gender));
 }
 
 function deleteUserByID($id){
@@ -64,8 +70,8 @@ function deleteUserByID($id){
     $stmt->execute(array($id));
 }
 
-function updateUser($id , $password, $firstName, $lastName, $age, $address){
+function updateUser($id , $password, $firstName, $lastName, $age){
   global $db;
-  $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?,address = ?, age = ? where id=?');
-  $stmt->execute(array($password, $firstName, $lastName, $age, $address, $id));
+  $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?, age = ? where id=?');
+  $stmt->execute(array($password, $firstName, $lastName, $age, $id));
 }
