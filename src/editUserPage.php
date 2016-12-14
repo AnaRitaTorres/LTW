@@ -14,6 +14,18 @@ if($user["id"] != $idUser)
 <div id="content">
     <h2>Edit User's Account</h2>
 	<div class="user">
+
+        <?php if($user["profilePic"] == null):?>
+            <div class="upload">
+                <form action="/controllers/uploadProfilePic.php" method="post" enctype="multipart/form-data">
+                    <h4>Profile Picture</h4>
+                    <input id="user_id" type="hidden" name="id" value="<?php echo $user['id'];?>"/>
+                    <input type="file" name="image" id="image" required>
+                    <input type="submit" value="Upload">
+                </form>
+            </div>
+        <?php endif;?>
+
 		<form action="/controllers/action_updateUser.php" method="post" id="editUserForm">
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $user['id'];?>">
 

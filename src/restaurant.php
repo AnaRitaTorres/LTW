@@ -38,11 +38,11 @@ include('resources/templates/gallery.php');
     <ol class="commentList">
         <h4>Reviews</h4>
         <li class="comment" id="comment">
-            <?php foreach ($reviews as $review):?>
+            <?php foreach ($reviews as $review): $author = getUserByID($review['user_id']);?>
                 <div class="commentBlock" id="comment<?php echo $review['id']?>">
                     <div class="comment-head">
                         <a id="hideBody">[-]</a>
-                        <cite class="fn"><?php $author = getUserByID($review['user_id']); echo $author["username"]?></cite>
+                        <a class="fn" href="profilePage.php?username=<?php echo $author["username"]?>"><?php echo $author["username"]?></a>
                         <a><?php echo $review['score']?>/10 points</a>
                         <a><?php echo $review['date']?></a>
                     </div>
@@ -61,11 +61,11 @@ include('resources/templates/gallery.php');
                     </div>
 
                     <?php
-                    foreach ($replies as $reply):?>
+                    foreach ($replies as $reply): $replyUser = getUserByID($reply["user_id"]);?>
                         <div class="commentBlock" id="reply<?php echo $reply['id']?>">
                             <div class="comment-head">
                                 <a id="hideReply">[-]</a>
-                                <cite class="fn"> <?php $replyUser = getUserByID($reply["user_id"]); echo $replyUser["username"]?></cite>
+                                <a class="fn" href="profilePage.php?username=<?php echo $replyUser["username"]?>"><?php echo $replyUser["username"]?></a>
                                 <a><?php echo $reply['date']?></a>
                                 <p id="replyBody"> <?php echo $reply['body']?></p>
                             </div>

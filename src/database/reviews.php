@@ -44,12 +44,12 @@ function getNrReviews($user_id, $restaurant_id){
     return count($result);
 }
 
-function getNrUserReviews($user_id){
+function getUserReviews($user_id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM reviews where user_id = ?');
     $stmt->execute(array($user_id));
     $result = $stmt->fetchAll();
-    return count($result);
+    return $result;
 }
 
 function getReviewReplies($review_id){

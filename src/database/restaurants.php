@@ -22,14 +22,6 @@ function getUserRestaurants($id){
     return $restaurants;
 }
 
-function getNrOfUserRestaurants($id){
-    global $db;
-    $stmt = $db->prepare('SELECT * FROM restaurant_user where user_id = ?');
-    $stmt->execute(array($id));
-    $result = $stmt->fetchAll();
-    return count($result);
-}
-
 function isOwner($user_id, $restaurant_id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM restaurant_user where user_id = ? AND restaurant_id = ?');
@@ -54,6 +46,14 @@ function getRestaurantByID($id){
     $stmt->execute(array($id));
     $result = $stmt->fetch();
     return $result;
+}
+
+function getRestaurantName($id){
+    global $db;
+    $stmt = $db->prepare('SELECT name FROM restaurants where id = ?');
+    $stmt->execute(array($id));
+    $result = $stmt->fetch();
+    return $result["name"];
 }
 
 function deleteRestaurantByID($id){

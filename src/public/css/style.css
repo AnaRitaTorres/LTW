@@ -356,7 +356,7 @@ ol.commentList li{
     color: #999;
 }
 
-.commentBlock cite.fn{
+.commentBlock fn{
     font-size: 14px;
     font-style: normal;
 }
@@ -507,6 +507,7 @@ img.hover-shadow {
 }
 
 .upload {
+    text-align: center;
     margin: 10px 5px;
     padding: 10px;
 }
@@ -528,3 +529,10 @@ img.hover-shadow {
     padding: 10px;
     text-align: left;
 }
+
+.userPic {
+    display: inline-block;
+    border-radius: 20px 0 0 20px;
+}
+
+a {text-decoration: none}

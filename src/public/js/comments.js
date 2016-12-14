@@ -70,7 +70,7 @@ $(document).ready(function(){
             var div =   '<div class="commentBlock" id=' + commentId + '>' +
                         '    <div class="comment-head">' +
                         '        <a id="hideBody">[-]</a>' +
-                        '        <cite class="fn">' + username + '</cite>' +
+                        '        <a class="fn" href="profilePage.php?username=' + username +'">' + username + '</a>' +
                         '        <a>' + points + '/10 points</a>' +
                         '        <a>' + date + '</a>' +
                         '    </div>' +
@@ -129,7 +129,7 @@ $(document).ready(function(){
             var div =   '<div class="commentBlock" id=' + reply + '>' +
                 '    <div class="comment-head">' +
                 '        <a id="hideReply">[-]</a>' +
-                '        <cite class="fn">' + username + '</cite>' +
+                '        <a class="fn" href="profilePage.php?username=' + username +'">' + username + '</a>' +
                 '        <a>' + date + '</a>' +
                 '        <p id="replyBody">'+ body + '</p>' +
                 '    </div>' +

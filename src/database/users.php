@@ -64,6 +64,12 @@ function newUser($name, $password, $email, $firstName, $lastName, $gender){
     $stmt->execute(array($name, $firstName, $lastName, $encryptedPass, $email, $gender));
 }
 
+function newProfilePic($user_id, $picName){
+    global $db;
+    $stmt = $db->prepare('UPDATE users SET profilePic = ? where id=?');
+    $stmt->execute(array($picName, $user_id));
+}
+
 function deleteUserByID($id){
     global $db;
     $stmt = $db->prepare('DELETE * FROM users where id = ?');
@@ -74,4 +80,12 @@ function updateUser($id , $password, $firstName, $lastName, $age){
   global $db;
   $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?, age = ? where id=?');
   $stmt->execute(array($password, $firstName, $lastName, $age, $id));
+}
+
+
+function searchUsers($name){
+    global $db;
+    $stmt = $db->prepare("SELECT * FROM users WHERE upper(username) LIKE upper(?) LIMIT 10");
+    $stmt->execute(array("$name%"));
+    return $stmt->fetchAll();
 }
