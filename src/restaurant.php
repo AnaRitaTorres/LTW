@@ -90,7 +90,7 @@ include('resources/templates/gallery.php');
             <label>Rating:
                 <input type="number" name="rating" id="rating" required min="1" max="10">/10
             </label><br>
-            <input type="submit" value="Save">
+            <button type="submit"class="savebtn">Save</button>
         </form>
     </div>
 <?php endif;?>

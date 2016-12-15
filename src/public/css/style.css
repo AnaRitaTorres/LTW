@@ -92,10 +92,53 @@ form {
     padding-left: 25px;
 }
 
-.profile{
+.img-circle{
+    border-radius: 50%;
+    width: auto;
+    height: 144px;
+    float:left;
+    padding: 15px;
+    margin-right: 70px;
+    margin-left: 110px;
+}
+
+#wrapInf{
     border: 3px solid #f1f1f1;
     background-color: #f1f1f1;
-    padding:10px;
+    margin-right: 10px;
+    margin-left:10px;
+    padding: 15px;
+    padding-bottom:60px;
+}
+
+.ownership{
+    text-align: left;
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    margin:0;
+    margin-right: 10px;
+    margin-left:10px;
+    padding: 15px;
+}
+
+.reviews{
+    text-align: left;
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    /*margin:0;*/
+    margin-right: 10px;
+    margin-left:10px;
+    padding: 15px;
+
+}
+#wrapInf .info{
+    text-align:left;
+    line-height: 30px;
+    padding-top: 30px;
+}
+
+#wrapInf .info label{
+    font-weight: bold;
 }
 
 /* Full-width inputs */
@@ -133,9 +176,9 @@ button {
 .backbtn{
     width: 10%;
 }
-.edittbtn{
+.defaultbtn{
     margin-bottom: 5px;
-    width: 100%;
+    width: 50%;
 }
 
 .savebtn{
@@ -235,9 +278,7 @@ span.psw {
     }
 }
 
-#bottomForm{
-    background-color:#f1f1f1;
-}
+
 
 /* The Modal (background) */
 .modal {
@@ -362,7 +403,7 @@ ol.commentList li{
     color: #999;
 }
 
-.commentBlock fn{
+.commentBlock cite.fn{
     font-size: 14px;
     font-style: normal;
 }
@@ -513,32 +554,7 @@ img.hover-shadow {
 }
 
 .upload {
-    text-align: center;
     margin: 10px 5px;
     padding: 10px;
 }
 
-.info {
-    margin: 10px 5px;
-    padding: 10px;
-    text-align: left;
-}
-
-.ownership {
-    margin: 10px 5px;
-    padding: 10px;
-    text-align: left;
-}
-
-.reviews {
-    margin: 10px 5px;
-    padding: 10px;
-    text-align: left;
-}
-
-.userPic {
-    display: inline-block;
-    border-radius: 20px 0 0 20px;
-}
-
-a {text-decoration: none}
