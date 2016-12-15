@@ -18,12 +18,10 @@ if(!$restaurant){
 if(!$isOwner)
     header('Location: /mainPage.php');
 ?>
-
+    <h2>Edit <?php echo $restaurant['name'];?></h2>
     <div id="content">
-        <h2>Edit <?php echo $restaurant['name'];?></h2>
-
         <form action="/controllers/action_shareOwnership.php" method="post" id="shareOwnership">
-            <h4>Share Ownership</h4>
+            <label>Share Ownership: </label><br>
             <input id="restaurant_id" type="hidden" name="id" value="<?php echo $restaurant['id'];?>"/>
             <input id="username" list="users" name="user" type="text" placeholder="Share ownership with...">
             <datalist id="users">

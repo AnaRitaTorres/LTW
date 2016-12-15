@@ -84,11 +84,33 @@ form {
     margin: 5px;
 }
 
-#description{
+#descriptionRes{
     border: 3px solid #f1f1f1;
     background-color: #f1f1f1;
     padding:10px;
     margin:10px;
+}
+
+.owners p {
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 10px;
+}
+
+.commentList #avgRating{
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 10px;
+}
+
+#content{
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 10px;
+    text-align: left;
 }
 
 #content .user{
@@ -118,7 +140,6 @@ form {
 .search_restaurants #searchType{
     font-size:80%;
 }
-
 
 .search_restaurants #restaurant_name{
     background-image: url(../img/search.png);
@@ -154,7 +175,6 @@ form {
     border-bottom: solid 1px;
     border-color: #4d0000;
 }
-
 
 .reviews{
     text-align: left;
@@ -253,8 +273,10 @@ button {
     font-family: 'Playfair Display SC', serif;
 }
 
+/*Buttons*/
+
 #newReview{
-    width:80%;
+    width:70%;
 }
 
 .user .savebtn{
@@ -263,6 +285,20 @@ button {
     left:15%;
     margin-top:15px;
 }
+
+#content .savebtn{
+    width:70%;
+    margin-top:15px;
+    position:relative;
+    left:15%;
+}
+
+.formbtn{
+   width:10%;
+   padding:3px;
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;;
+}
+
 #reviewContent .savebtn{
     width:70%;
     position:relative;
@@ -271,7 +307,7 @@ button {
 }
 
 .info .checkbtn{
-    width:70%;
+    width:50%;
     position:relative;
     margin-top:15px;
 }
@@ -289,6 +325,15 @@ button {
     margin-top:15px;
 }
 
+.editbtn1{
+    width:70%;
+    postion:fixed;
+    left:15%;
+    margin-top:15px;
+    margin-left:100px;
+    margin-right: 100px;
+    margin-bottom:15px;
+}
 .backbtn{
     width: 10%;
 }
@@ -373,7 +418,7 @@ button {
 
 /* Add padding to containers */
 .container {
-    padding: 16px;
+    /*padding: 16px;*/
     font-family: 'Arimo', sans-serif;
 }
 
@@ -492,10 +537,6 @@ article.single img{
     height:500px
 }
 
-ol.commentList{
-    margin: 10px 5px;
-    padding: 10px;
-}
 .commentList .commentBlock{
     padding: 10px;
     background: #EFEFEF;
@@ -508,6 +549,10 @@ ol.commentList{
     top: 10px;
     right: 10px;
     color: #AEAEAE;
+}
+
+ol.commentList{
+    padding-left: 0;
 }
 ol.commentList li{
     list-style: none;
@@ -668,8 +713,5 @@ img.hover-shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
-.upload {
-    margin: 10px 5px;
-    padding: 10px;
-}
+
 

@@ -11,14 +11,13 @@ if($user["id"] != $idUser)
     header("Location: " . $_SERVER['HTTP_REFERER']);
 ?>
 
+<h2>Edit User's Account</h2>
 <div id="content">
-    <h2>Edit User's Account</h2>
-	<div class="user">
-
+    <div class="user">
         <?php if($user["profilePic"] == null):?>
             <div class="upload">
                 <form action="/controllers/uploadProfilePic.php" method="post" enctype="multipart/form-data">
-                    <h4>Profile Picture</h4>
+                    <label>Profile Picture:</label><br><br>
                     <input id="user_id" type="hidden" name="id" value="<?php echo $user['id'];?>"/>
                     <input type="file" name="image" id="image" required>
                     <input type="submit" value="Upload">
@@ -56,8 +55,8 @@ if($user["id"] != $idUser)
 		</form>
 	</div>
 
-    <button onclick="location.href='/mainPage.php'" class="backbtn">Back</button>
 </div>
+    <button onclick="location.href='/mainPage.php'" class="backbtn">Back</button>
 
 <?php
 include('resources/templates/footer.php');

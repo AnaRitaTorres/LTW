@@ -26,7 +26,7 @@ include('resources/templates/reply_form.php');
 ?>
     <div>
         <h2><?php echo htmlentities($restaurant["name"]); ?></h2>
-        <div id="description">
+        <div id="descriptionRes">
         <?php echo $restaurant["description"]; ?>
         </div>
         <h4>Additional Information</h4>
@@ -135,7 +135,7 @@ if(count($images) > 0)
 <?php endif;?>
 
 <?php if($isOwner):?>
-    <button onclick="location.href='<?= '/editRestaurantPage.php?id=' . $restaurant['id'] ?>';"class="editbtn">Edit Restaurant</button>
+    <button onclick="location.href='<?= '/editRestaurantPage.php?id=' . $restaurant['id'] ?>';"class="editbtn1">Edit Restaurant</button>
 <?php endif;?>
 
     <button onclick="location.href='/restaurantsPage.php'" class="backbtn">Back</button>
