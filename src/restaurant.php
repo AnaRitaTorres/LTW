@@ -15,6 +15,8 @@ $isOwner = isOwner($user["id"], $restaurant["id"]);
 $reviews = getRestaurantReviews($restaurant["id"]);
 $images = getRestaurantImages($restaurant["id"]);
 $nReviews = getNrReviews($user["id"], $restaurant["id"]);
+$owners = getOwners($restaurant["id"]);
+$rating = getRestaurantAvgRating($reviews);
 
 include('resources/templates/reply_form.php');
 ?>
@@ -23,20 +25,41 @@ include('resources/templates/reply_form.php');
         <?php echo $restaurant["description"]; ?>
     </div>
 
+    <div class="info">
+        <h4>Additional Info Depois organiza melhor isto rita </h4>
+        <p>Inaugurated on <?php echo $restaurant["inauguration"]; ?></p>
+        <p>Average price <?php echo $restaurant["price"]; ?>$</p>
+        <p>Category <?php echo $restaurant["category"]; ?></p>
+        <a href="<?php echo $restaurant["website"]?>">Restaurant's website</a>
+    </div>
+
 <?php
 include('resources/templates/gallery.php');
 ?>
 
-    <!--
     <h3>Location</h3>
     <div id="location"></div>
-    <input type="hidden" name="restaurantId" id="restaurantId" value="<?php /*echo $restaurant["id"];*/?>">
+    <input type="hidden" name="restaurantId" id="restaurantId" value="<?php echo $restaurant["id"];?>">
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=showMap&libraries=places"></script>
--->
+
+    <div class="owners">
+        <h4>Owners</h4>
+        <p>This restaurant is owned by:
+            <?php for($i = 0; $i < count($owners); $i++): ?>
+                <a href="profilePage.php?username=<?php echo $owners[$i]["username"]?>">
+                <?php if(count($owners) == 1)
+                    echo ($owners[$i]["username"] . '.</a>');
+                else if($i == count($owners) - 1)
+                    echo ('and '.$owners[$i]["username"] . '.</a>');
+                else echo ($owners[$i]["username"] . ' </a>');
+            endfor; ?>
+        </p>
+    </div>
 
     <ol class="commentList">
         <h4>Reviews</h4>
+        <p>This restaurant was rated by <?php echo count($reviews)?> users and has an average rating of <?php echo $rating?> in 10. </p>
         <li class="comment" id="comment">
             <?php foreach ($reviews as $review): $author = getUserByID($review['user_id']);?>
                 <div class="commentBlock" id="comment<?php echo $review['id']?>">
@@ -48,15 +71,16 @@ include('resources/templates/gallery.php');
                     </div>
 
                     <div class="comment-body">
+                        <p><?php echo $review['title']?></p>
                         <p><?php echo $review['body']?></p>
                         <?php
-                            $author = getUserByID($review['user_id']);
-                            $replies = getReviewReplies($review["id"]);
-                            $alreadyReplied = checkReplies($replies, $user["id"]);
+                        $author = getUserByID($review['user_id']);
+                        $replies = getReviewReplies($review["id"]);
+                        $alreadyReplied = checkReplies($replies, $user["id"]);
                         if($author["username"] != $user["username"] && $alreadyReplied == false):?>
-                        <div class="reply">
-                            <a class="comment-reply-link" id="reply<?php echo $review['id']?>">Reply</a>
-                        </div>
+                            <div class="reply">
+                                <a class="comment-reply-link" id="reply<?php echo $review['id']?>">Reply</a>
+                            </div>
                         <?php endif;?>
                     </div>
 

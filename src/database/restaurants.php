@@ -22,6 +22,19 @@ function getUserRestaurants($id){
     return $restaurants;
 }
 
+function getRestaurantAvgRating($reviews){
+    $sum = 0;
+    foreach ($reviews as $review){
+        $sum += $review["score"];
+    }
+
+    $reviewsCount = count($reviews);
+    if($reviewsCount == 0){
+        $avgRating = 0;
+    } else $avgRating = $sum/$reviewsCount;
+    return $avgRating;
+}
+
 function isOwner($user_id, $restaurant_id){
     global $db;
     $stmt = $db->prepare('SELECT * FROM restaurant_user where user_id = ? AND restaurant_id = ?');
@@ -38,6 +51,19 @@ function getRestaurantReviews($restaurant_id){
     $stmt->execute(array($restaurant_id));
     $result = $stmt->fetchAll();
     return $result;
+}
+
+function getOwners($restaurant_id){
+    global $db;
+    $stmt = $db->prepare('SELECT * FROM restaurant_user where restaurant_id = ?');
+    $stmt->execute(array($restaurant_id));
+    $result = $stmt->fetchAll();
+
+    $users = [];
+    foreach ($result as $row){
+        array_push($users, getUserByID($row["user_id"]));
+    }
+    return $users;
 }
 
 function getRestaurantByID($id){
