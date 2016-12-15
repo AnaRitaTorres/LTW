@@ -116,7 +116,7 @@ function searchRestaurant($name){
 
 function getRestaurantByCategory($category){
     global $db;
-    $stmt = $db->prepare("SELECT * FROM restaurants WHERE WHERE upper(category) LIKE upper(?) LIMIT 10");
+    $stmt = $db->prepare("SELECT * FROM restaurants WHERE upper(category) LIKE upper(?) LIMIT 10");
     $stmt->execute(array("$category%"));
     return $stmt->fetchAll();
 }

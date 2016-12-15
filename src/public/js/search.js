@@ -68,14 +68,13 @@ $(document).ready(function() {
 
     function restaurantChanged(event) {
         var text = event.target;
-
-        var searchType = "Location";
+        var searchType = $('input[name=type]:checked', '#searchForm').val()
         if(searchType == "Location"){
             locationSearch(text.value);
         } else{
             var request = new XMLHttpRequest();
             request.addEventListener("load", restaurantsReceived, false);
-            request.open("get", "/controllers/action_searchRestaurant.php?type=Location&name=" + text.value, true);
+            request.open("get", "/controllers/action_searchRestaurant.php?type=" + searchType + "&name=" + text.value, true);
             request.send();
         }
     }
@@ -85,7 +84,6 @@ $(document).ready(function() {
         var list = $("#suggestions");
         list.text("");
 
-        // Add new suggestions
         for (var rest in restaurants) {
             var item = document.createElement("li");
             list.append(item);

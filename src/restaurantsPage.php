@@ -25,17 +25,17 @@ $user_restaurants = getUserRestaurants($user["id"]);
 
         <h3>Restaurants</h3>
         <div class="search_restaurants">
-            <form action="#" method="get">
+            <form action="#" method="get" id="searchForm">
                 <input id="restaurant_name" name="restaurant" type="text" placeholder="Search..">
                 <div id="searchType">
-                    <input type="radio" name="check" value="site" id="st" checked />
-                    <label for="searchSite" id="siteNameLabel">Default</label>
+                    <input type="radio" name="type" value="Default" checked />
+                    <label >Default</label>
 
-                    <input type="radio" name="check" value="web" id="st" />
-                    <label for="searchWeb">Category</label>
+                    <input type="radio" name="type" value="Category"/>
+                    <label>Category</label>
 
-                    <input type="radio" name="check" value="web" id="st" />
-                    <label for="searchWeb">Location</label>
+                    <input type="radio" name="type" value="Location"/>
+                    <label>Location</label>
                 </div>
             </form>
             <ul id="suggestions">
