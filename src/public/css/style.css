@@ -396,6 +396,14 @@ button {
     background-color:#001a33;
     color: white;
 }
+
+.lgnbtn{
+    margin-bottom:10px;
+}
+
+.regbtn{
+    margin-bottom:10px;
+}
 /* Extra style for the register button */
 .registerbtn{
     background-color: #4d0000;

@@ -35,7 +35,7 @@
             </label>
             <br>
 
-            <button type="submit">Register</button>
+            <button type="submit" class="regbtn">Register</button>
         </div>
 
         <div class="container" id="bottomForm">

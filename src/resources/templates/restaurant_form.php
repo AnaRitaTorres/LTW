@@ -27,7 +27,7 @@
         </label>
         <br>
         <label>Website:
-            <input type="url" name="url" id="url">
+            <input type="url" name="url" id="url" required>
         </label>
         <br>
         <label>Description:<br>
