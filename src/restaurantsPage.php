@@ -31,6 +31,9 @@ $user_restaurants = getUserRestaurants($user["id"]);
             <ul id="suggestions">
             </ul>
         </div>
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAg3ef8eoV1JXRWq-OG3kSxr4uQyfiKKps&callback=geocodeLocations&libraries=places"></script>
+
     </div>
 
     <button onclick="location.href='/mainPage.php'" class="backbtn">Back</button>
