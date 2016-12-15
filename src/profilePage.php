@@ -21,10 +21,10 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
 
 ?>
 
-<div class="profile">
-    <h3><?php echo (htmlentities($fullName) . ' profile');?></h3>
 
-    <div id="wrapInf">
+    <h3><?php echo (htmlentities($fullName) . ' profile');?></h3>
+<div class="profile">
+     <div id="wrapInf">
         <?php if($user["profilePic"] != null):?>
             <div class="userPic">
                  <img class="img-circle" src="<?php echo $user["profilePic"] ?>">
@@ -32,13 +32,13 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
         <?php endif;?>
 
         <div class="info">
-            <label>Username: </label> <?php echo $user['username']?>.
+            <label>Username: </label> <?php echo $user['username']?>
             <br>
-            <label>Email:</label> <a href="mailto:<?php echo $user['email']?>"><?php echo $user['email']?></a>.
+            <label>Email:</label> <a href="mailto:<?php echo $user['email']?>"><?php echo $user['email']?></a>
             <br>
-            <label>Age: </label> <?php echo $user['age']?> Years Old.
+            <label>Age: </label> <?php echo $user['age']?> Years Old
             <br>
-            <label>Gender: </label> <?php echo $user['gender']?>.
+            <label>Gender: </label> <?php echo $user['gender']?>
             <br>
         </div>
     </div>
@@ -49,6 +49,7 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
             <?php foreach ($restaurants as $row): ?>
                 <li>
                     <a href="<?= '/restaurant.php?id=' . $row['id'] ?>"><?php echo $row["name"]; ?></a>
+                    <div id="bar"></div>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -60,6 +61,7 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
             <?php foreach ($reviews as $row): ?>
                 <li>
                     <a href="<?= '/restaurant.php?id=' . $row['restaurant_id'] ?>"><?php echo getRestaurantName($row['restaurant_id']); ?></a>
+                    <div id="bar"></div>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -67,7 +69,7 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
 
 
     <?php if($isOwner):?>
-        <button onclick="location.href='<?= '/editUserPage.php?id=' . $user['id'] ?>';" class="edittbtn">Edit Account</button>
+        <button onclick="location.href='<?= '/editUserPage.php?id=' . $user['id'] ?>';" class="editbtn">Edit Account</button>
     <?php endif;?>
 </div>
 

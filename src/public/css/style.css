@@ -17,7 +17,7 @@ body{
 }
 
 header{
-    background-color: darkred;
+    background-color: #4d0000;
     text-align: center;
     padding:50px;
     padding-bottom: 40px;
@@ -25,37 +25,57 @@ header{
 }
 
 footer{
-    background-color: darkred;
+    background-color: #4d0000;
     padding: 25px;
     overflow: auto;
 }
 
 h1{
     font-family: 'Rock Salt', cursive;
+    color:#001a33;
     font-size: 300%;
-    color: black;
+
 }
 
 h2{
     font-family: 'Playfair Display SC', serif;
-    color: black;
+    color: #001a33;
     font-size:130%;
 }
 
 h3{
     font-family: 'Playfair Display SC', serif;
-    color: black;
+    text-align: center;
+    color: #001a33;
 }
 
 h4{
     font-family: 'Playfair Display SC', serif;
-    color: black;
     font-size:100%;
+    color: #001a33;
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+    text-decoration: none;
+    font-style: italic;
+}
+
+ul{
+    list-style-type: circle;
 }
 
 .main #user{
     font-size: 120%;
 }
+
 /* Bordered form */
 form {
     border: 3px solid #f1f1f1;
@@ -102,15 +122,6 @@ form {
     margin-left: 110px;
 }
 
-#wrapInf{
-    border: 3px solid #f1f1f1;
-    background-color: #f1f1f1;
-    margin-right: 10px;
-    margin-left:10px;
-    padding: 15px;
-    padding-bottom:60px;
-}
-
 .ownership{
     text-align: left;
     border: 3px solid #f1f1f1;
@@ -121,16 +132,39 @@ form {
     padding: 15px;
 }
 
+.ownership #bar{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-bottom: solid 1px;
+    border-color: #4d0000;
+}
+
+.ownership li{
+
+}
+
 .reviews{
     text-align: left;
     border: 3px solid #f1f1f1;
     background-color: #f1f1f1;
-    /*margin:0;*/
     margin-right: 10px;
     margin-left:10px;
     padding: 15px;
-
 }
+
+.reviews #bar{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-bottom: solid 1px;
+    border-color: #4d0000;
+}
+
+#wrapInf{
+    background-color: #f1f1f1;
+    border: 1px solid #4d0000;
+    border-radius: 10px;
+}
+
 #wrapInf .info{
     text-align:left;
     line-height: 30px;
@@ -138,6 +172,45 @@ form {
 }
 
 #wrapInf .info label{
+    font-weight: bold;
+}
+
+
+.info{
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    padding-top: 20px;
+}
+
+.info #text{
+    line-height: 30px;
+    text-align: center;
+}
+
+.info #text label{
+    font-weight: bold;
+}
+
+.profile{
+    text-align: left;
+    border: 3px solid #f1f1f1;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    padding: 15px;
+
+}
+
+.comment-body{
+    text-align:left;
+}
+
+.comment-body #title{
     font-weight: bold;
 }
 
@@ -159,7 +232,7 @@ input[type=number], input[type=radio], input[type=date]{
 
 /* Set a style for all buttons */
 button {
-    background-color: #4CAF50;
+    background-color: #001a33;
     color: white;
     padding: 14px 20px;
     margin-top:0px;
@@ -171,6 +244,38 @@ button {
 
 #newReview{
     width:80%;
+}
+
+.user .savebtn{
+    width:70%;
+    position:relative;
+    left:15%;
+    margin-top:15px;
+}
+#reviewContent .savebtn{
+    width:70%;
+    position:relative;
+    left:15%;
+    margin-top:15px;
+}
+
+.info .checkbtn{
+    width:70%;
+    position:relative;
+    margin-top:15px;
+}
+.createRestaurant .savebtn{
+    width:70%;
+    position:relative;
+    left:15%;
+    margin-top:15px;
+}
+
+.profile .editbtn{
+    width:70%;
+    position:relative;
+    left:15%;
+    margin-top:15px;
 }
 
 .backbtn{
@@ -187,64 +292,64 @@ button {
 
 /* Extra style for the home button */
 .homebtn1{
-    background-color: darkred;
+    background-color: #4d0000;
     width:33.33333%;
     float:left;
 }
 
 /*Effect if mouse is on top of the home button */
 .homebtn1:hover{
-    background-color: #4CAF50;
+    background-color: #001a33;
     color: white;
 }
 
 /* Extra style for the home button */
 .homebtn2{
-    background-color: darkred;
+    background-color: #4d0000;
     width:50%;
     float:left;
 }
 
 /*Effect if mouse is on top of the home button */
 .homebtn2:hover{
-    background-color: #4CAF50;
+    background-color: #001a33;
     color: white;
 }
 
 /* Extra style for the login button */
 .loginbtn{
-    background-color: darkred;
+    background-color: #4d0000;
     width:33.33333%;
 
 }
 
 /*Effect if mouse is on top of the login button */
 .loginbtn:hover{
-    background-color: #4CAF50;
+    background-color: #001a33;
     color: white;
 }
 
 /* Extra style for the logout button */
 .logoutbtn{
-    background-color: darkred;
+    background-color: #4d0000;
     width:50%;
 }
 
 /*Effect if mouse is on top of the logout button */
 .logoutbtn:hover{
-    background-color: #4CAF50;
+    background-color:#001a33;
     color: white;
 }
 /* Extra style for the register button */
 .registerbtn{
-    background-color: darkred;
+    background-color: #4d0000;
     width:33.33333%;
     float:right;
 }
 
 /*Effect if mouse is on top of the register button */
 .registerbtn:hover{
-    background-color: #4CAF50;
+    background-color:#001a33;
     color: white;
 }
 
@@ -252,7 +357,7 @@ button {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: darkred;
+    background-color: #4d0000;
 }
 
 /* Add padding to containers */
@@ -317,7 +422,7 @@ span.psw {
 /* Close button on hover */
 .close:hover,
 .close:focus {
-    color: darkred;
+    color: #4d0000;
     cursor: pointer;
 }
 
@@ -425,8 +530,7 @@ ol.commentList li{
     padding: 5px 15px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+
 }
 
 

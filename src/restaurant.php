@@ -27,14 +27,19 @@ include('resources/templates/reply_form.php');
     <div style="padding:20px;">
         <h2>Restaurant <?php echo htmlentities($restaurant["name"]); ?></h2>
         <?php echo $restaurant["description"]; ?>
+        <h4>Additional Information</h4>
     </div>
 
     <div class="info">
-        <h4>Additional Info Depois organiza melhor isto rita </h4>
-        <p>Inaugurated on <?php echo $restaurant["inauguration"]; ?></p>
-        <p>Average price <?php echo $restaurant["price"]; ?>$</p>
-        <p>Category <?php echo $restaurant["category"]; ?></p>
-        <a href="<?php echo utf8_decode(urldecode($restaurant["website"]))?>">Restaurant's website</a>
+        <div id="text">
+            <label>Inaugurated On </label> <?php echo $restaurant["inauguration"]; ?>
+            <br>
+            <label>Average Price </label> <?php echo $restaurant["price"]; ?>$
+            <br>
+            <label>Category </label> <?php echo $restaurant["category"]; ?>
+            <br>
+        </div>
+        <button href="<?php echo utf8_decode(urldecode($restaurant["website"]))?>" class="checkbtn">Checkout Their Website</button>
     </div>
 
 
@@ -51,7 +56,7 @@ if(count($images) > 0)
 
     <div class="owners">
         <h4>Owners</h4>
-        <p>This restaurant is owned by:
+        <p>This Restaurant is Owned by:
             <?php for($i = 0; $i < count($owners); $i++): ?>
                 <a href="profilePage.php?username=<?php echo $owners[$i]["username"]?>">
                 <?php if(count($owners) == 1)
@@ -65,7 +70,7 @@ if(count($images) > 0)
 
     <ol class="commentList">
         <h4>Reviews</h4>
-        <p id="avgRating">This restaurant was rated by <?php echo count($reviews)?> users and has an average rating of <?php echo $rating?> in 10. </p>
+        <p id="avgRating">This Restaurant was Rated by <?php echo count($reviews)?> Users and has an Average Rating of <?php echo $rating?> in 10. </p>
         <li class="comment" id="comment">
             <?php foreach ($reviews as $review): $author = getUserByID($review['user_id']);?>
                 <div class="commentBlock" id="comment<?php echo $review['id']?>">
@@ -77,7 +82,9 @@ if(count($images) > 0)
                     </div>
 
                     <div class="comment-body">
-                        <p><?php echo $review['title']?></p>
+                        <br>
+                        <p id="title"><?php echo $review['title']?></p>
+                        <br>
                         <p><?php echo $review['body']?></p>
                         <?php
                         $author = getUserByID($review['user_id']);
@@ -115,7 +122,7 @@ if(count($images) > 0)
                 <input type="text" name="title" id="title" required maxlength="50">
             </label><br>
             <label>Body:<br>
-                <textarea id="body" rows="5" cols="100" name="body" maxlength="255" id="body" required></textarea>
+                <textarea id="body" rows="5" cols="10" name="body" maxlength="255" id="body" required></textarea>
             </label><br>
             <label>Rating:
                 <input type="number" name="rating" id="rating" required min="1" max="10">/10
@@ -126,7 +133,7 @@ if(count($images) > 0)
 <?php endif;?>
 
 <?php if($isOwner):?>
-    <button onclick="location.href='<?= '/editRestaurantPage.php?id=' . $restaurant['id'] ?>';">Edit Restaurant</button>
+    <button onclick="location.href='<?= '/editRestaurantPage.php?id=' . $restaurant['id'] ?>';"class="editbtn">Edit Restaurant</button>
 <?php endif;?>
 
     <button onclick="location.href='/restaurantsPage.php'" class="backbtn">Back</button>
