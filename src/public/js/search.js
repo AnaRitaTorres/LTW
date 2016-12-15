@@ -20,7 +20,7 @@ $(document).ready(function() {
 
         var request = new XMLHttpRequest();
         request.addEventListener("load", restaurantsReceived, false);
-        request.open("get", "/controllers/action_searchRestaurant.php?name=" + text.value, true);
+        request.open("get", "/controllers/action_searchRestaurant.php?type=default&name=" + text.value, true);
         request.send();
     }
 
