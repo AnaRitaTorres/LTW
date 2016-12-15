@@ -115,6 +115,10 @@ form {
     padding-top: 10px;
     padding-bottom: 20px;
 }
+.search_restaurants #searchType{
+    font-size:80%;
+}
+
 
 .search_restaurants #restaurant_name{
     background-image: url(../img/search.png);
