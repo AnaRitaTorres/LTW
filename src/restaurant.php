@@ -25,7 +25,7 @@ if(!$restaurant){
 include('resources/templates/reply_form.php');
 ?>
     <div style="padding:20px;">
-        <h2>Restaurant <?php echo $restaurant["name"]; ?></h2>
+        <h2>Restaurant <?php echo htmlentities($restaurant["name"]); ?></h2>
         <?php echo $restaurant["description"]; ?>
     </div>
 

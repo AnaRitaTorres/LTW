@@ -22,7 +22,7 @@ $fullName = $user['first_name'] . ' ' . $user['last_name'];
 ?>
 
 <div class="profile">
-    <h3><?php echo ($fullName . ' profile');?></h3>
+    <h3><?php echo (htmlentities($fullName) . ' profile');?></h3>
 
     <div id="wrapInf">
         <?php if($user["profilePic"] != null):?>

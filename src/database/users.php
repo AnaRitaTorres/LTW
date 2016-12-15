@@ -77,9 +77,11 @@ function deleteUserByID($id){
 }
 
 function updateUser($id , $password, $firstName, $lastName, $age){
-  global $db;
-  $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?, age = ? where id=?');
-  $stmt->execute(array($password, $firstName, $lastName, $age, $id));
+    global $db;
+    $options = ['cost' => 12];
+    $encryptedPass = password_hash($password, PASSWORD_DEFAULT, $options);
+    $stmt = $db->prepare('UPDATE users SET password = ?, first_name = ?, last_name = ?, age = ? where id=?');
+    $stmt->execute(array($encryptedPass, $firstName, $lastName, $age, $id));
 }
 
 

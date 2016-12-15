@@ -48,7 +48,7 @@ if(!$isOwner)
             <form action="/controllers/action_updateRestaurant.php" method="post">
                 <input type="hidden" name="id" value="<?php echo $restaurant['id'];?>"/>
                 <label>Name:
-                    <input type="text" name="name" required id="name" maxlength="50" value="<?php echo $restaurant['name'];?>">
+                    <input type="text" name="name" required id="name" maxlength="50" value="<?php echo htmlentities($restaurant['name']);?>">
                 </label>
                 <br>
                 <label>Category:
@@ -74,7 +74,7 @@ if(!$isOwner)
                 </label>
                 <br>
                 <label>Description:<br>
-                    <textarea rows="5" cols="90" name="description" id="description"  maxlength="255"><?php echo $restaurant['description'];?></textarea>
+                    <textarea rows="5" cols="90" name="description" id="description"  maxlength="255"><?php echo htmlentities($restaurant['description']);?></textarea>
                 </label>
                 <br>
                 <button type="submit"class="savebtn">Save</button>

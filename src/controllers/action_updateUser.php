@@ -10,11 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($_POST["firstName"] == null)
         $first_name = $user["first_name"];
-    else $first_name = trim(strip_tags($_POST["firstName"]));
+    else{
+        $first_name = trim(strip_tags($_POST["firstName"]));
+        if ( !preg_match ("/^[a-zA-Z\s]+$/", $first_name)) {
+            echo "Invalid first name!";
+            return;
+        }
+    }
 
     if ($_POST["lastName"] == null)
         $last_name = $user["last_name"];
-    else $last_name = trim(strip_tags($_POST["lastName"]));
+    else {
+        $last_name = trim(strip_tags($_POST["lastName"]));
+        if ( !preg_match ("/^[a-zA-Z\s]+$/", $first_name)) {
+            echo "Invalid last name!";
+            return;
+        }
+    }
 
     if ($_POST["age"] == null)
         $age = $user["age"];
@@ -28,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = $_POST["newPass"];
     }
 
-    if (!passwordMatch($id, $password)) {
+    if (!userExists($user["username"], $password)) {
         echo "Wrong password!";
         return;
     }

@@ -152,7 +152,11 @@ $(document).ready(function(){
             success: function (data) {
                 $("#registerForm").find(".error").hide();
                 var div = '<div class="error">' + data + '</div>';
-                if (data == "Invalid username!" || data == "Email address already in use!")
+                if (data == "Invalid username!" 
+                    || data == "Email address already in use!" 
+                    || data == "Invalid first name!"
+                    || data == "Invalid last name!"
+                    || data == "Invalid username!")
                     $("#registerForm").children(".container").first().append(div);
                 else {
                     window.location = "mainPage.php";
@@ -222,7 +226,7 @@ $(document).ready(function(){
             success: function (data) {
                 $(".user").find(".error").hide();
                 var div = '<div class="error">' + data + '</div>';
-                if (data == "Wrong password!")
+                if (data == "Wrong password!" || data == "Invalid first name!" || data == "Invalid last name!")
                     $(".user").append(div);
                 else {
                     window.location = "mainPage.php";
