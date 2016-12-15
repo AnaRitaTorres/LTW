@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $last_name = $user["last_name"];
     else {
         $last_name = trim(strip_tags($_POST["lastName"]));
-        if ( !preg_match ("/^[a-zA-Z\s]+$/", $first_name)) {
+        if ( !preg_match ("/^[a-zA-Z\s]+$/", $last_name)) {
             echo "Invalid last name!";
             return;
         }

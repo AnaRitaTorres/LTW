@@ -9,7 +9,7 @@ session_destroy();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = trim(strip_tags($_POST["firstName"]));
-    if ( !preg_match ("/^[a-zA-Z\s]+$/", $first_name)) {
+    if ( !preg_match ("/^[a-zA-Z\s]+$/", $firstName)) {
         echo "Invalid first name!";
         return;
     }

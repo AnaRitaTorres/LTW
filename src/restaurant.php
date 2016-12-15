@@ -65,7 +65,7 @@ if(count($images) > 0)
 
     <ol class="commentList">
         <h4>Reviews</h4>
-        <p>This restaurant was rated by <?php echo count($reviews)?> users and has an average rating of <?php echo $rating?> in 10. </p>
+        <p id="avgRating">This restaurant was rated by <?php echo count($reviews)?> users and has an average rating of <?php echo $rating?> in 10. </p>
         <li class="comment" id="comment">
             <?php foreach ($reviews as $review): $author = getUserByID($review['user_id']);?>
                 <div class="commentBlock" id="comment<?php echo $review['id']?>">

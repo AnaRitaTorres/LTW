@@ -60,13 +60,17 @@ $(document).ready(function(){
             var arr = JSON.parse(response);
             var review = arr[0];
             var user = arr[1];
+            var usersCount = arr[2];
+            var avgRating = arr[3];
             var commentId = "comment"+review["id"];
             var username = user["username"];
             var body = review["body"];
             var date = review["date"];
             var points = review["score"];
             var title = review["title"];
-
+            console.log(usersCount);
+            console.log(avgRating);
+            var newParagraph = "This restaurant was rated by " + usersCount + " users and has an average rating of " + avgRating + " in 10.";
 
             var div =   '<div class="commentBlock" id=' + commentId + '>' +
                         '    <div class="comment-head">' +
@@ -82,6 +86,7 @@ $(document).ready(function(){
             $('#comment').append(div);
             $('#reviewContent').hide();
             $('#newReview').hide();
+            $('#avgRating').text(newParagraph);
         });
 
         // Callback handler that will be called on failure

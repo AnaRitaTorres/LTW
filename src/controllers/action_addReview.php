@@ -11,7 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = getUserByName($_SESSION['username']);
     $restaurant = getRestaurantByID($_POST["restaurant_id"]);
     $id = newReview(validate($_POST["title"]), $_POST["rating"], validate($_POST["body"]), $user["id"], $restaurant["id"]);
-    echo json_encode([getReview($id), $user]);
+    $reviews = getRestaurantReviews($restaurant["id"]);
+    $usersCount = count($reviews);
+    $avgRating = getRestaurantAvgRating($reviews);
+    echo json_encode([getReview($id), $user, $usersCount, $avgRating]);
 }
 
 function validate($value){
