@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $name = trim(strip_tags($_POST["name"]));
     $description = trim(strip_tags($_POST["description"]));
-    $website = trim(strip_tags($_POST["url"]));
+    $website = rawurlencode(trim(strip_tags($_POST["url"])));
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
     $category = $_POST["category"];
 

@@ -10,13 +10,17 @@ include('database/reviews.php');
 include('database/replies.php');
 
 $user = getUserByName($_SESSION['username']);
-$restaurant = getRestaurantByID($_GET["id"]);
+$restaurant = getRestaurantByID(trim(strip_tags($_GET["id"])));
 $isOwner = isOwner($user["id"], $restaurant["id"]);
 $reviews = getRestaurantReviews($restaurant["id"]);
 $images = getRestaurantImages($restaurant["id"]);
 $nReviews = getNrReviews($user["id"], $restaurant["id"]);
 $owners = getOwners($restaurant["id"]);
 $rating = getRestaurantAvgRating($reviews);
+
+if(!$restaurant){
+    header('Location: /mainPage.php');
+}
 
 include('resources/templates/reply_form.php');
 ?>
@@ -30,7 +34,7 @@ include('resources/templates/reply_form.php');
         <p>Inaugurated on <?php echo $restaurant["inauguration"]; ?></p>
         <p>Average price <?php echo $restaurant["price"]; ?>$</p>
         <p>Category <?php echo $restaurant["category"]; ?></p>
-        <a href="<?php echo $restaurant["website"]?>">Restaurant's website</a>
+        <a href="<?php echo utf8_decode(urldecode($restaurant["website"]))?>">Restaurant's website</a>
     </div>
 
 <?php

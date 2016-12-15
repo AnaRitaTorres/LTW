@@ -7,7 +7,10 @@ include('database/users.php');
 include('database/restaurants.php');
 include('database/reviews.php');
 $sessionUser = getUserByName($_SESSION['username']);
-$user = getUserByName($_GET["username"]);
+$user = getUserByName(trim(strip_tags($_GET["username"])));
+if(!$user){
+    header("Location: /mainPage.php");
+}
 if($user["username"] === $sessionUser["username"])
     $isOwner = true;
 else $isOwner = false;

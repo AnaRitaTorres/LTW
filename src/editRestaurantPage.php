@@ -7,12 +7,16 @@ include_once('database/restaurants.php');
 include_once('database/users.php');
 include_once('database/images.php');
 $user = getUserByName($_SESSION['username']);
-$restaurant = getRestaurantByID($_GET["id"]);
+$restaurant = getRestaurantByID(trim(strip_tags($_GET["id"])));
 $isOwner = isOwner($user["id"], $restaurant["id"]);
 $images = getRestaurantImages($restaurant["id"]);
 
+if(!$restaurant){
+    header('Location: /mainPage.php');
+}
+
 if(!$isOwner)
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: /mainPage.php');
 ?>
 
     <div id="content">
@@ -66,7 +70,7 @@ if(!$isOwner)
                 </label>
                 <br>
                 <label>Website:
-                    <input type="url" name="url" id="url" value="<?php echo $restaurant['website'];?>">
+                    <input type="url" name="url" id="url" value="<?php echo utf8_decode(urldecode($restaurant['website']));?>">
                 </label>
                 <br>
                 <label>Description:<br>
