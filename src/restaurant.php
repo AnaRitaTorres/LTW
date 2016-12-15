@@ -41,7 +41,7 @@ include('resources/templates/reply_form.php');
             <label>Category </label> <?php echo $restaurant["category"]; ?>
             <br>
         </div>
-        <button href="<?php echo utf8_decode(urldecode($restaurant["website"]))?>" class="checkbtn">Checkout Their Website</button>
+        <button onclick="location.href='<?php echo utf8_decode(urldecode($restaurant["website"]))?>';" class="checkbtn">Checkout Their Website</button>
     </div>
 
 
