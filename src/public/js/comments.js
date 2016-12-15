@@ -65,6 +65,7 @@ $(document).ready(function(){
             var body = review["body"];
             var date = review["date"];
             var points = review["score"];
+            var title = review["title"];
 
 
             var div =   '<div class="commentBlock" id=' + commentId + '>' +
@@ -75,6 +76,7 @@ $(document).ready(function(){
                         '        <a>' + date + '</a>' +
                         '    </div>' +
                         '    <div class="comment-body">' +
+                        '        <p>' + title +'</p>' +
                         '        <p>' + body +'</p>' +
                         '</div>';
             $('#comment').append(div);
