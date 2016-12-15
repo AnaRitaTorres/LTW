@@ -37,8 +37,10 @@ include('resources/templates/reply_form.php');
         <a href="<?php echo utf8_decode(urldecode($restaurant["website"]))?>">Restaurant's website</a>
     </div>
 
+
 <?php
-include('resources/templates/gallery.php');
+if(count($images) > 0)
+    include('resources/templates/gallery.php');
 ?>
 
     <h3>Location</h3>
