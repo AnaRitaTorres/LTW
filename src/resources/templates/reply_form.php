@@ -5,7 +5,7 @@
             <input type="hidden" name="user_id" id="user_id" value="<?php echo $user["id"];?>">
             <input type="hidden" name="review_id" id="review_id" value="">
 			<label>Reply</label><br>
-            <textarea rows="5" cols="75" name="body" maxlength="255" id="body" required></textarea>
+            <textarea rows="5" cols="5" name="body" maxlength="255" id="body" required></textarea>
 			<button type="submit" class="savebtn">Save</button>
         </div>
 
