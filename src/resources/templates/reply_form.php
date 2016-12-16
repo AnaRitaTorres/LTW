@@ -6,10 +6,10 @@
             <input type="hidden" name="review_id" id="review_id" value="">
 			<label>Reply</label><br>
             <textarea rows="5" cols="75" name="body" maxlength="255" id="body" required></textarea>
-			<button type="submit">Save</button>
+			<button type="submit" class="savebtn">Save</button>
         </div>
 
-		<div class="container" style="background-color:#f1f1f1">
+		<div class="container">
 			<button type="button" onclick="$('#id03').hide()" class="cancelbtn">Cancel</button>
 		</div>
 	</form>

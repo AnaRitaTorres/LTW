@@ -426,9 +426,10 @@ button {
 
 /* Add padding to containers */
 .container {
-    /*padding: 16px;*/
+    padding: 16px;
     font-family: 'Arimo', sans-serif;
 }
+
 
 /* The "Forgot password" text */
 span.psw {
