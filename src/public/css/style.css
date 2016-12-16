@@ -614,7 +614,7 @@ ol.commentList li{
 
 .column {
     float: left;
-    width: 25%;
+    margin:5%;
 }
 
 .galleryModal {
