@@ -128,7 +128,8 @@ form {
 }
 
 .user_restaurants ul{
-    margin-left:-50px;
+    margin-left:250px;
+    text-align:left;
 }
 
 .search_restaurants {
