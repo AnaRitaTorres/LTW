@@ -3,7 +3,7 @@ Repository to host Web Languages and Technologies [project](/Project%20specifica
 
 LTW is a course given at FEUP in the third year of the Master in Informatics and Computing Engineering.
  
-## Objective
+## Goal
 Web application where users can share and review restaurants.
 
 ## Features
@@ -30,8 +30,13 @@ Web application where users can share and review restaurants.
 
 ## Gallery
 
-<img src="https://github.com/renatoabreu11/LTW/blob/master/Profile.png" width="256" heigth="256"> 
-<img src="https://github.com/renatoabreu11/LTW/blob/master/EditRestaurant.png" width="256" heigth="256">
+| [<img src="/res/Home.png" width="256" heigth="256">](/res/Home.png)                                                                   | [<img src="/res/Profile.png" width="256" heigth="256">](/res/Profile.png)                                                             | [<img src="/res/Search.png" width="256" heigth="256">](/res/Search.png) |
+|:---:|:---:|:---:|
+| Home Page | User Profile | Restaurant Search |
+
+| [<img src="/res/Restaurant.png" width="256" heigth="12">](/res/Restaurant.png)                                                        | [<img src="/res/EditRestaurant.png" width="256" heigth="256">](/res/EditRestaurant.png)                                               | [<img src="/res/Reviews.png" width="256" heigth="256">](/res/Reviews.png) |
+|:---:|:---:|:---:|
+| Restaurant Page | Edit Restaurant | Reviews and Replies |
 
 ## Team 
 [Ana Rita Torres](https://github.com/AnaRitaTorres)
